@@ -16,7 +16,7 @@
     <script type = "text/javascript" src = "words.js"></script>
     <script type = "text/javascript" src = "rankings.js"></script>
     <script type = "text/javascript" src = "commonwords.js"></script>
-    <!-- <script type = "text/javascript" src = "officialanswers.js"></script> -->
+    <script type = "text/javascript" src = "officialanswers.js"></script>
 	<title>Wordl Calcl</title>
 </head>
 <body>
@@ -41,6 +41,7 @@
         </div>
         
         <div id = "guesses">
+            <button id="refresh"><i class="fa fa-refresh"></i></button>
             <input type="text" autocomplete="off" id="word_entered" name="word_entered" 
             input onkeypress = 'return /[a-z]/i.test(event.key)' oninput= 'this.value = this.value.toUpperCase()' type = 'letter' >
             
@@ -48,7 +49,6 @@
         </div>
         
         <div id = "suggestions">
-            <button id="refresh"><i class="fa fa-refresh"></i></button>
         
             <h2 class = 'num_options'></h2>
             <h3 class = 'by_likelihood'></h3> 

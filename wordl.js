@@ -33,13 +33,13 @@ $(document).ready(function() {
     setLength();
     makeTables();
     initialList();
-    $("#word_entered").focus();
+    // $("#word_entered").focus();
 
     $("#refresh").click(function() {
         // testStartingWords();
         $("#grid").html("");
         initialList();
-        $(".submission").focus();
+        // $(".submission").focus();
     });
 
     $("select#num_letters").on('input', function() {
@@ -47,7 +47,7 @@ $(document).ready(function() {
         removeTest();
         makeTables();
         initialList();
-        $("#word_entered").focus();
+        // $("#word_entered").focus();
 
         localStorage.setItem("word length", word_length);
     });
@@ -76,7 +76,7 @@ $(document).ready(function() {
         if (words.includes(val)) {
             $("#word_entered").blur();
             
-            removeTest();
+            // removeTest();
             makeTables(val);
             
             if (word_length == 11) {
@@ -85,19 +85,11 @@ $(document).ready(function() {
         } 
     });
 
-    $(document).on('click', 'button.tile', function() {
+    $(document).on('click', '.tile', function() {
         let color = $(this).css("background-color");
         let new_color;
 
         $(this).css("color", "white");
-
-        // if (color == colors[3]) new_color = colors[0];
-        // else if (color == colors[0]) new_color = colors[1];
-        // else if (color == colors[1]) new_color = colors[2];
-        // else {
-        //     new_color = colors[3];
-        //     $(this).css("color", "black");
-        // }
 
         if (color == incorrect_color) new_color = correct_color;
         else if (color == correct_color) new_color = wrong_spots_color;
@@ -128,6 +120,15 @@ $(document).ready(function() {
         var val = getWord();
         setupTest(val);
     });
+
+    $(document).on('click', '.showlist', function() {
+        $(this).children().addClass("visible");
+    });
+
+    $(document).on('click', '.close', function(e){
+        e.stopPropagation();
+        $(this).parent().removeClass("visible");
+    });
 });
 
 function makeTables(val, c) {
@@ -142,7 +143,7 @@ function makeTables(val, c) {
         var row = "<div class = 'row'>"
         
         for (let i = 0; i < word_length; i++) {
-            row += "<button class = 'tile " + c + "'>" + val[i] + "</button>"
+            row += "<div class = 'tile " + c + "'>" + val[i] + "</div>"
         }
         
         row += "</div><div class = 'buttons'><button class = 'filter'>Filter list</button>"
@@ -171,6 +172,12 @@ function setLength() {
 
     common = common_words.filter((element) => {return element.length == word_length});
     words = big_list.filter((element) => {return element.length == word_length; });
+
+    for (let i = 0; i < common.length; i++) {
+        if (!official.includes(common[i])) {
+            console.log(common[i]);
+        }
+    }
 }
 
 function update(initial) {
@@ -190,13 +197,17 @@ function update(initial) {
         uncommon = true;
     }
 
+    if (!list.length) {
+        finalOptions([], []);
+        return;
+    }
+
     var alphabet = bestLetters(list);
     updateLetterList(alphabet, list.length);
 
     var sorted = sortList(list, alphabet);
     var newlist = words.slice();
     var full_list = sortList(newlist, alphabet, sorted);
-
     full_list = useTop(sorted.map(a => a.word), full_list.map(a => a.word), initial, false);
     // full_list = useTop(sorted.map(a => a.word), reduceList(full_list.map(a => a.word)), initial, false);
 
@@ -205,8 +216,9 @@ function update(initial) {
         t.word === value.word && t.rank === value.rank
         ))
     );
-    
+        
     if (uncommon) sorted = [];
+
     updateLists(sorted, full_list);
 
     return full_list;
@@ -286,7 +298,7 @@ function updateLists(sorted, full_list) {
     var words_left = filterList(full_list.map(a => a.word), document.getElementsByClassName("tile"));
     var hard_guesses = full_list.filter(a => words_left.includes(a.word));
     var less_likely = hard_guesses.filter(a => !sorted.some(b => b.word == a.word));
-
+ 
     var easy_suggestions = "";
     for (let i = 0; i < sorted.length && i < list_size; i++) {
         let suggestion = "<div class = 'suggestion'>" + full_list[i].word + ":</div> <div class = 'score'> reduces list to " + full_list[i].rank.toFixed(2) + " words.</div>";
@@ -308,7 +320,9 @@ function updateLists(sorted, full_list) {
     const unlikely = hard_guesses.length - sorted.length;
 
     heading.innerHTML = words_left.length + " possible word" + ((words_left.length != 1) ? "s" : "");
-    subheading.innerHTML = sorted.length + " probable answer" + ((sorted.length != 1) ? "s" : "") + ", " + unlikely + " unlikely possibilit" + ((unlikely != 1) ? "ies" : "y") + ".";
+    subheading.innerHTML = "<span class = 'showlist'><div></div>" + sorted.length + " probable answer" + ((sorted.length != 1) ? "s" : "") + "</span>, " 
+                            + "<span class = 'showlist'><div></div>" + unlikely + " unlikely possibilit" + ((unlikely != 1) ? "ies" : "y") + "</span>.";
+    
     normal_list.innerHTML = easy_suggestions;
     hard_list.innerHTML = hard_suggestions;
 
@@ -316,12 +330,43 @@ function updateLists(sorted, full_list) {
     document.getElementsByClassName("best-guesses hard")[0].append(hard_list);
     document.getElementsByClassName("best_options")[0].innerHTML = "these are your best possible guesses:";
 
+    var word_lists = document.getElementsByClassName("showlist");
+    var potential_answers = word_lists[0].getElementsByTagName("div")[0];
+    var technically_words = word_lists[1].getElementsByTagName("div")[0];
+
+    potential_answers.innerHTML = "";
+    for (let i = 0; i < sorted.length; i++) {
+        potential_answers.innerHTML += sorted[i].word + "<br>";
+    }
+    potential_answers.innerHTML = "<p>" + potential_answers.innerHTML + "</p><button class = 'close'>&#10006</button>";
+
+    technically_words.innerHTML = "";
+    for (let i = 0; i < less_likely.length; i++) {
+        technically_words.innerHTML += less_likely[i].word + "<br>";
+    }
+    technically_words.innerHTML = "<p>" + technically_words.innerHTML + "</p><button class = 'close'>&#10006</button>";
+
+    // var close = document.createElement("button");
+    // close.setAttribute("class", "close");
+    // close.innerHTML = "&#10006";
+    // technically_words.innerHTML += close;
+    // potential_answers.innerHTML += close;
+    
     if (sorted.length <= 2) {
         finalOptions(sorted, less_likely);
     }
 }
 
 function finalOptions(sorted, less_likely) {
+    if (!sorted.length && !less_likely.length) {
+        const no_words = "<div id = 'nowords'>it doesn't look like we have this word. double check to make sure you all the clues you entered are correct.</div>"
+
+        document.getElementsByClassName("best_options")[0].innerHTML = "";
+        document.getElementsByClassName("best-guesses normal")[0].getElementsByTagName("ul")[0].innerHTML = no_words;
+        document.getElementsByClassName("best-guesses hard")[0].innerHTML = no_words;
+        // return;
+    }
+
     if (sorted.length) {
         let final_words = "<li class = 'likely'>the word is almost certainly ";
 
@@ -333,7 +378,6 @@ function finalOptions(sorted, less_likely) {
             final_words += "<span class = 'final'>" + sorted[0].word + "</span></li>";
         }
 
-        document.getElementsByClassName("best_options")[0].innerHTML = "";
 
         // normal slide
         document.getElementsByClassName("best-guesses normal")[0].getElementsByTagName("ul")[0].innerHTML = final_words;
@@ -495,9 +539,7 @@ function useTop(filtered, full_list, initial, isBot) {
 
         best_words.push({word: compare, rank: weighted});
         
-        if (weighted == 1 && isBot) {
-            if (best_words.length >= filtered.length) break;
-        }
+        if (weighted < 1 && isBot) break;
     }
 
     best_words.sort((a, b) => a.rank >= b.rank ? 1 : -1);

@@ -3587,6 +3587,11 @@ const easy =
 
 [
     {
+        word: "STEAL",
+        average: 3.631,
+        wrong: 0
+    },
+    {
         word: "CANISTER",
         average: 2.835,
         wrong: 0

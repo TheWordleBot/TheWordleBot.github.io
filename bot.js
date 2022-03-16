@@ -113,12 +113,17 @@ function removeTest() {
     if (document.getElementById("results")) {
         document.getElementById("results").remove();
     } 
+
+    document.getElementById("grid").innerHTML = "";
+    document.getElementById("word_entered").disabled = false;
 }
 
 function setupTest(word) {
     if (document.getElementById("results")) {
         document.getElementById("results").remove();
     } 
+
+    document.getElementById("word_entered").disabled = true;
 
     var test_center = document.createElement("div");
     test_center.setAttribute("id", "results");
@@ -132,6 +137,7 @@ function setupTest(word) {
     test_center.innerHTML += "<div class = 'bar five'><span class = 'num-guesses'>5/6</span><span class = 'count'></span></div>";
     test_center.innerHTML += "<div class = 'bar sixe'><span class = 'num-guesses'>6/6</span><span class = 'count'></span></div>";
     test_center.innerHTML += "<div class = 'bar x'><span class = 'num-guesses'>X/6</span><span class = 'count'></span></div>";
+    test_center.innerHTML += "<button id = 'cancel'>&#10006</button>";
 
     document.getElementById("suggestions").appendChild(test_center);
 
@@ -149,6 +155,7 @@ function setupTest(word) {
         document.getElementsByClassName("bar")[i].style.height = "1.125rem";
     }
 
+    
     var tiles = document.getElementsByClassName("tile");
     for (let i = 0; i < tiles.length; i++) {
         tiles[i].classList.add("testing");
@@ -157,27 +164,29 @@ function setupTest(word) {
     let new_form = document.createElement("div");
     new_form.setAttribute("id", "test-settings");
 
-    // var remembers = "<div><input type='checkbox' id='remembers' name='remembers'>";
-    // remembers += "<label for='remembers'>Bot remembers previous answers</label><br>";
     var hard = "<div><input type='checkbox' id='hard-mode' name='hard-mode'>";
     hard += "<label for='hard-mode'>Bot plays hard mode</label></div>";
     var submit_button = "<button class = 'bot'>Start WordleBot</button>";
 
     var info = "<div class = 'info'> The Wordle Bot will test " + word + " against 300 randomly selected answers.</div>";
 
-    // new_form.innerHTML = remembers + hard + info + submit_button;
     new_form.innerHTML = hard + info + submit_button;
 
     test_center.appendChild(new_form);
 
+    document.getElementById("cancel").addEventListener('click', function() {            
+        pairings = [];
+        document.getElementById("guesses").appendChild(
+            document.getElementById("grid")
+        );
+
+        removeTest();
+    });
+
     document.getElementsByClassName("bot")[0].addEventListener("click", function() {
-
         hard_mode = document.getElementById("hard-mode").checked;
-        // remembers_words = document.getElementById("remembers").checked;
-
         document.getElementById("test-settings").remove();
 
-        // runBot(word, hard_mode, remembers_words);
         runBot(word, hard_mode);
     });
 }
@@ -228,7 +237,7 @@ function runBot(guess, hard_mode, remembers_words) {
 
         count++;
 
-        document.getElementById("refresh").addEventListener('click', function() {
+        document.getElementById("cancel").addEventListener('click', function() {
             clearInterval(iv);
             
             pairings = [];
@@ -294,7 +303,6 @@ function wordleBot(guess, answer, hard_mode, remembers_words) {
         }
         
         if (guess == answer || attempts == 6) {
-            if (remembers_words) common.splice(common.indexOf(answer), 1); // removes answer from list of possiblities
             if (guess != answer) attempts++;
             break;
         }
@@ -315,7 +323,7 @@ function wordleBot(guess, answer, hard_mode, remembers_words) {
             } 
         }
 
-        const max_size = 300000
+        const max_size = 3000000
         if (list.length * full_list.length > max_size) {
             let small_size = max_size/full_list.length;
             let big_size = max_size/list.length;
