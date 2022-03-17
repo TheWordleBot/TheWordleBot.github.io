@@ -85,7 +85,9 @@ $(document).ready(function() {
         } 
     });
 
-    $(document).on('click', '.tile', function() {
+    $(document).on('click', '.tile', function(e) {
+        e.preventDefault();
+
         let color = $(this).css("background-color");
         let new_color;
 
@@ -172,12 +174,6 @@ function setLength() {
 
     common = common_words.filter((element) => {return element.length == word_length});
     words = big_list.filter((element) => {return element.length == word_length; });
-
-    for (let i = 0; i < common.length; i++) {
-        if (!official.includes(common[i])) {
-            console.log(common[i]);
-        }
-    }
 }
 
 function update(initial) {
@@ -261,7 +257,14 @@ function initialList() {
     var fewest_list = "";
     for (let i = 0; i < parseInt(list_size/2)  && i < fewest_wrong.length; i++) {
         let word = "<div class = 'suggestion'>" + fewest_wrong[i].word + ": </div>";
-        let score = "<div class = 'score'>" + (((common.length-fewest_wrong[i].wrong)/common.length)*100).toFixed(2) + "% of words solved.</div>";
+        let percentage;
+        if (fewest_wrong[i].wrong < 1) {
+            percentage = (100 - fewest_wrong[i].wrong*100).toFixed(2);
+        } else {
+            percentage = (((common.length-fewest_wrong[i].wrong)/common.length)*100).toFixed(2);
+        }
+
+        let score = "<div class = 'score'>" + percentage + "% of words solved.</div>";
         fewest_list += "<li>" + word + score + "</li>";
     }
 

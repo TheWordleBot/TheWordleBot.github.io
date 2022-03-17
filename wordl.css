@@ -45,7 +45,7 @@ body {
 /* GUESS AND ALL SUB DIVS */
 /* CONATINS ALL INFO ON WORDS ENTERED & PATTERNS */
 #guesses {
-    position: relative;
+    /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,8 +170,8 @@ button:hover, .tile:hover {
 
 #refresh {
     position: absolute;
-    top: .625rem;
-    margin-right: max(50%, 14rem);
+    top: .5rem;
+    left: .5rem;
     z-index: 100;
 }
 

@@ -37,8 +37,14 @@ function reduceList(list) {
 
 function testStartingWords() {
     console.log("testing");
-    var check_list = update(true);
+    // var check_list = update(true);
+
+    // var check_list = easy;
+    var check_list = hard;
+    // check_list = check_list.sort((a, b) => a.average >= b.average ? 1 : -1);
+    check_list = check_list.sort((a, b) => a.wrong >= b.wrong ? 1 : -1);
     check_list = check_list.map(a => a.word);
+    check_list = check_list.filter(a => a.length == word_length);
     
     // check_list = reduceList(check_list);
     console.log(check_list);
@@ -57,23 +63,23 @@ function testStartingWords() {
         if (averages.length > current) {
             current = averages.length;
 
-            while (true) {
-                if (hard_mode) {
-                    if (hard.filter(a => a.word == check_list[i]).length) {
-                        i++;
-                    } else {
-                        break;
-                    }
-                }
+            // while (true) {
+            //     if (hard_mode) {
+            //         if (hard.filter(a => a.word == check_list[i]).length) {
+            //             i++;
+            //         } else {
+            //             break;
+            //         }
+            //     }
 
-                else {
-                    if (easy.filter(a => a.word == check_list[i]).length) {
-                        i++;
-                    } else {
-                        break;
-                    }
-                }
-            }
+            //     else {
+            //         if (easy.filter(a => a.word == check_list[i]).length) {
+            //             i++;
+            //         } else {
+            //             break;
+            //         }
+            //     }
+            // }
 
             makeTables(check_list[i]);
             setupTest(check_list[i]);
@@ -273,7 +279,7 @@ function runBot(guess, hard_mode, remembers_words) {
             document.getElementsByClassName("current")[0].innerHTML = "<div id = 'summary'>" + summary + "</div>";
             clearInterval(iv);
 
-            averages.push({word: guess, average: average, wrong: wrong});
+            averages.push({word: guess, average: average, wrong: wrong/common.length.toFixed(4)});
             averages.sort((a, b) => a.average >= b.average ? 1 : -1);
 
             const endTime = performance.now();   
