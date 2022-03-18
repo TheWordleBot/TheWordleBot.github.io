@@ -33,13 +33,11 @@ $(document).ready(function() {
     setLength();
     makeTables();
     initialList();
-    // $("#word_entered").focus();
 
     $("#refresh").click(function() {
         // testStartingWords();
         $("#grid").html("");
         initialList();
-        // $(".submission").focus();
     });
 
     $("select#num_letters").on('input', function() {
@@ -47,7 +45,6 @@ $(document).ready(function() {
         removeTest();
         makeTables();
         initialList();
-        // $("#word_entered").focus();
 
         localStorage.setItem("word length", word_length);
     });
@@ -95,11 +92,7 @@ $(document).ready(function() {
 
         if (color == incorrect_color) new_color = correct_color;
         else if (color == correct_color) new_color = wrong_spots_color;
-        else if (color == ignore_color) new_color = incorrect_color;
-        else {
-            new_color = ignore_color;
-            $(this).css("color", "black");
-        }
+        else new_color = incorrect_color;
 
         $(this).css("background-color", new_color);
     });
@@ -145,7 +138,7 @@ function makeTables(val, c) {
         var row = "<div class = 'row'>"
         
         for (let i = 0; i < word_length; i++) {
-            row += "<div class = 'tile " + c + "'>" + val[i] + "</div>"
+            row += "<button class = 'tile " + c + "'>" + val[i] + "</button>"
         }
         
         row += "</div><div class = 'buttons'><button class = 'filter'>Filter list</button>"
@@ -174,6 +167,12 @@ function setLength() {
 
     common = common_words.filter((element) => {return element.length == word_length});
     words = big_list.filter((element) => {return element.length == word_length; });
+
+    // for (let i = 0; i < common.length; i++) {
+    //     if (!official.includes(common[i])) {
+    //         console.log(common[i]);
+    //     }
+    // }
 }
 
 function update(initial) {
@@ -547,6 +546,7 @@ function useTop(filtered, full_list, initial, isBot) {
 
     best_words.sort((a, b) => a.rank >= b.rank ? 1 : -1);
 
+    if (!isBot) pairings = [];
     return best_words;
 }
 

@@ -2,280 +2,470 @@ const hard =
 
 [
     {
-        word: "SPART",
-        average: 3.631,
-        wrong: 0.0031043849437330227
+        "word": "SPART",
+        "average": 3.623921568627451,
+        "wrong": 0.0035294117647058825
     },
     {
-        word: "SPRAT",
-        average: 3.631,
-        wrong: 0.002328288707799767
+        "word": "SPRAT",
+        "average": 3.6258823529411766,
+        "wrong": 0.002352941176470588
     },
     {
-        word: "CARTS",
-        average: 3.640,
-        wrong: 0.0034924330616996507
+        "word": "CARTS",
+        "average": 3.6349019607843136,
+        "wrong": 0.0027450980392156863
     },
     {
-        word: "PARTS",
-        average: 3.641,
-        wrong: 0.0031043849437330227
+        "word": "PARTS",
+        "average": 3.635686274509804,
+        "wrong": 0.003137254901960784
     },
     {
-        word: "TALCS",
-        average: 3.646,
-        wrong: 0.0019402405898331393
+        "word": "TALCS",
+        "average": 3.64,
+        "wrong": 0.001568627450980392
     },
     {
-        word: "DALTS",
-        average: 3.661,
-        wrong: 0.0038804811796662787
+        "word": "CRAMP",
+        "average": 3.6850980392156862,
+        "wrong": 0.0027450980392156863
     },
     {
-        word: "CIRLS",
-        average: 3.681,
-        wrong: 0.0038804811796662787
+        "word": "MARCS",
+        "average": 3.6882352941176473,
+        "wrong": 0.0027450980392156863
     },
     {
-        word: "CRAMP",
-        average: 3.692,
-        wrong: 0.002716336825766395
+        "word": "CLAMP",
+        "average": 3.696862745098039,
+        "wrong": 0.00196078431372549
     },
     {
-        word: "MARCS",
-        average: 3.695,
-        wrong: 0.0031043849437330227
+        "word": "CRIMP",
+        "average": 3.7015686274509805,
+        "wrong": 0.0027450980392156863
     },
     {
-        word: "CLAMP",
-        average: 3.705,
-        wrong: 0.002328288707799767
+        "word": "CORMS",
+        "average": 3.703921568627451,
+        "wrong": 0.002352941176470588
     },
     {
-        word: "CRIMP",
-        average: 3.708,
-        wrong: 0.0031043849437330227
+        "word": "SCRIM",
+        "average": 3.7058823529411766,
+        "wrong": 0.00196078431372549
     },
     {
-        word: "SCRIM",
-        average: 3.712,
-        wrong: 0.002328288707799767
+        "word": "SCAMP",
+        "average": 3.7141176470588237,
+        "wrong": 0.00196078431372549
     },
     {
-        word: "CORMS",
-        average: 3.713,
-        wrong: 0.0031043849437330227
+        "word": "CAMPS",
+        "average": 3.720392156862745,
+        "wrong": 0.002352941176470588
     },
     {
-        word: "SCAMP",
-        average: 3.720,
-        wrong: 0.002716336825766395
+        "word": "CHASM",
+        "average": 3.7427450980392156,
+        "wrong": 0.0035294117647058825
     },
     {
-        word: "SLORM",
-        average: 3.723,
-        wrong: 0.005044625533566162
+        "word": "TRACE",
+        "average": 3.6058823529411765,
+        "wrong": 0.004705882352941176
     },
     {
-        word: "CAMPS",
-        average: 3.726,
-        wrong: 0.0031043849437330227
+        "word": "SLANT",
+        "average": 3.6066666666666665,
+        "wrong": 0.0027450980392156863
     },
     {
-        word: "CHASM",
-        average: 3.743,
-        wrong: 0.0031043849437330227
+        "word": "SALET",
+        "average": 3.607450980392157,
+        "wrong": 0.005098039215686275
     },
     {
-        word: "CRUMP",
-        average: 3.749,
-        wrong: 0.0034924330616996507
+        "word": "REAST",
+        "average": 3.616078431372549,
+        "wrong": 0.005098039215686275
     },
     {
-        word: "CHIRM",
-        average: 3.753,
-        wrong: 0.0038804811796662787
+        "word": "SLART",
+        "average": 3.6180392156862746,
+        "wrong": 0.0027450980392156863
     },
     {
-        word: "CROMB",
-        average: 3.761,
-        wrong: 0.004656577415599534
+        "word": "TARNS",
+        "average": 3.62,
+        "wrong": 0.0035294117647058825
     },
     {
-        word: "SLANT",
-        average: 3.613,
-        wrong: 10
+        "word": "TRANS",
+        "average": 3.6215686274509804,
+        "wrong": 0.0035294117647058825
     },
     {
-        word: "TRACE",
-        average: 3.615,
-        wrong: 14
+        "word": "CLAST",
+        "average": 3.6219607843137256,
+        "wrong": 0.003137254901960784
     },
     {
-        word: "REAST",
-        average: 3.618,
-        wrong: 13
+        "word": "SPART",
+        "average": 3.623921568627451,
+        "wrong": 0.0035294117647058825
     },
     {
-        word: "SALET",
-        average: 3.622,
-        wrong: 17
+        "word": "SPART",
+        "average": 3.623921568627451,
+        "wrong": 0.0035294117647058825
     },
     {
-        word: "SLART",
-        average: 3.624,
-        wrong: 9
+        "word": "SLATE",
+        "average": 3.625098039215686,
+        "wrong": 0.007058823529411765
     },
     {
-        word: "TARNS",
-        average: 3.626,
-        wrong: 10
+        "word": "SPRAT",
+        "average": 3.6258823529411766,
+        "wrong": 0.002352941176470588
     },
     {
-        word: "CLAST",
-        average: 3.628,
-        wrong: 9
+        "word": "SPRAT",
+        "average": 3.6258823529411766,
+        "wrong": 0.002352941176470588
     },
     {
-        word: "SPRAT",
-        average: 3.631,
-        wrong: 6
+        "word": "TARPS",
+        "average": 3.6266666666666665,
+        "wrong": 0.0027450980392156863
     },
     {
-        word: "SPART",
-        average: 3.631,
-        wrong: 8
+        "word": "RANTS",
+        "average": 3.631764705882353,
+        "wrong": 0.00392156862745098
     },
     {
-        word: "TARPS",
-        average: 3.632,
-        wrong: 7
+        "word": "SLANE",
+        "average": 3.632156862745098,
+        "wrong": 0.007450980392156863
     },
     {
-        word: "SLATE",
-        average: 3.633,
-        wrong: 18
+        "word": "DRANT",
+        "average": 3.632941176470588,
+        "wrong": 0.004313725490196078
     },
     {
-        word: "RANTS",
-        average: 3.634,
-        wrong: 10
+        "word": "CARTS",
+        "average": 3.6349019607843136,
+        "wrong": 0.0027450980392156863
     },
     {
-        word: "TRANS",
-        average: 3.634,
-        wrong: 10
+        "word": "CARTS",
+        "average": 3.6349019607843136,
+        "wrong": 0.0027450980392156863
     },
     {
-        word: "CARTS",
-        average: 3.640,
-        wrong: 9
+        "word": "PARTS",
+        "average": 3.635686274509804,
+        "wrong": 0.003137254901960784
     },
     {
-        word: "DRANT",
-        average: 3.640,
-        wrong: 13
+        "word": "PARTS",
+        "average": 3.635686274509804,
+        "wrong": 0.003137254901960784
     },
     {
-        word: "PARTS",
-        average: 3.641,
-        wrong: 8
+        "word": "RESAT",
+        "average": 3.63843137254902,
+        "wrong": 0.006274509803921568
     },
     {
-        word: "SLANE",
-        average: 3.641,
-        wrong: 20
+        "word": "DRATS",
+        "average": 3.6388235294117646,
+        "wrong": 0.003137254901960784
     },
     {
-        word: "RESAT",
-        average: 3.643,
-        wrong: 16
+        "word": "TORSE",
+        "average": 3.6403921568627453,
+        "wrong": 0.004313725490196078
     },
-    {
-        word: "DRATS",
-        average: 3.643,
-        wrong: 8
-    },
-    {
-        word: "TORSE",
-        average: 3.644,
-        wrong: 14
-    },
-    {
-        word: "CARSE",
-        average: 3.645,
-        wrong: 18
-    },
-    {
-        word: "CARET",
-        average: 3.645,
-        wrong: 15
-    },
-    {
-        word: "PLANT",
-        average: 3.646,
-        wrong: 11
-    },
-    {
-        word: "TALCS",
-        average: 3.646,
-        wrong: 5
-    },
-    {
-        word: "CLART",
-        average: 3.647,
-        wrong: 9
-    },
-    {
-        word: "SCART",
-        average: 3.648,
-        wrong: 13
-    },
-    {
-        word: "CLATS",
-        average: 3.649,
-        wrong: 7
-    },
-    {
-        word: "TIRLS",
-        average: 3.653,
-        wrong: 8
-    },
-    {
-        word: "CROST",
-        average: 3.656,
-        wrong: 16
-    },
-    {
-        word: "LARNT",
-        average: 3.658,
-        wrong: 11
-    },
-    {
-        word: "LATEN",
-        average: 3.658,
-        wrong: 10
-    },
-    {
-        word: "DALTS",
-        average: 3.661,
-        wrong: 10
-    },
-    {
-        word: "SNIRT",
-        average: 3.662,
-        wrong: 21
-    },
-    {
-        word: "ALERT",
-        average: 3.667,
-        wrong: 21
-    },
-    {
-        word: "ARTEL",
-        average: 3.671,
-        wrong: 25
-    },
+    // {
+    //     word: "SPART",
+    //     average: 3.631,
+    //     wrong: 0.0031043849437330227
+    // },
+    // {
+    //     word: "SPRAT",
+    //     average: 3.631,
+    //     wrong: 0.002328288707799767
+    // },
+    // {
+    //     word: "CARTS",
+    //     average: 3.640,
+    //     wrong: 0.0034924330616996507
+    // },
+    // {
+    //     word: "PARTS",
+    //     average: 3.641,
+    //     wrong: 0.0031043849437330227
+    // },
+    // {
+    //     word: "TALCS",
+    //     average: 3.646,
+    //     wrong: 0.0019402405898331393
+    // },
+    // {
+    //     word: "DALTS",
+    //     average: 3.661,
+    //     wrong: 0.0038804811796662787
+    // },
+    // {
+    //     word: "CIRLS",
+    //     average: 3.681,
+    //     wrong: 0.0038804811796662787
+    // },
+    // {
+    //     word: "CRAMP",
+    //     average: 3.692,
+    //     wrong: 0.002716336825766395
+    // },
+    // {
+    //     word: "MARCS",
+    //     average: 3.695,
+    //     wrong: 0.0031043849437330227
+    // },
+    // {
+    //     word: "CLAMP",
+    //     average: 3.705,
+    //     wrong: 0.002328288707799767
+    // },
+    // {
+    //     word: "CRIMP",
+    //     average: 3.708,
+    //     wrong: 0.0031043849437330227
+    // },
+    // {
+    //     word: "SCRIM",
+    //     average: 3.712,
+    //     wrong: 0.002328288707799767
+    // },
+    // {
+    //     word: "CORMS",
+    //     average: 3.713,
+    //     wrong: 0.0031043849437330227
+    // },
+    // {
+    //     word: "SCAMP",
+    //     average: 3.720,
+    //     wrong: 0.002716336825766395
+    // },
+    // {
+    //     word: "SLORM",
+    //     average: 3.723,
+    //     wrong: 0.005044625533566162
+    // },
+    // {
+    //     word: "CAMPS",
+    //     average: 3.726,
+    //     wrong: 0.0031043849437330227
+    // },
+    // {
+    //     word: "CHASM",
+    //     average: 3.743,
+    //     wrong: 0.0031043849437330227
+    // },
+    // {
+    //     word: "CRUMP",
+    //     average: 3.749,
+    //     wrong: 0.0034924330616996507
+    // },
+    // {
+    //     word: "CHIRM",
+    //     average: 3.753,
+    //     wrong: 0.0038804811796662787
+    // },
+    // {
+    //     word: "CROMB",
+    //     average: 3.761,
+    //     wrong: 0.004656577415599534
+    // },
+    // {
+    //     word: "SLANT",
+    //     average: 3.613,
+    //     wrong: 10
+    // },
+    // {
+    //     word: "TRACE",
+    //     average: 3.615,
+    //     wrong: 14
+    // },
+    // {
+    //     word: "REAST",
+    //     average: 3.618,
+    //     wrong: 13
+    // },
+    // {
+    //     word: "SALET",
+    //     average: 3.622,
+    //     wrong: 17
+    // },
+    // {
+    //     word: "SLART",
+    //     average: 3.624,
+    //     wrong: 9
+    // },
+    // {
+    //     word: "TARNS",
+    //     average: 3.626,
+    //     wrong: 10
+    // },
+    // {
+    //     word: "CLAST",
+    //     average: 3.628,
+    //     wrong: 9
+    // },
+    // {
+    //     word: "SPRAT",
+    //     average: 3.631,
+    //     wrong: 6
+    // },
+    // {
+    //     word: "SPART",
+    //     average: 3.631,
+    //     wrong: 8
+    // },
+    // {
+    //     word: "TARPS",
+    //     average: 3.632,
+    //     wrong: 7
+    // },
+    // {
+    //     word: "SLATE",
+    //     average: 3.633,
+    //     wrong: 18
+    // },
+    // {
+    //     word: "RANTS",
+    //     average: 3.634,
+    //     wrong: 10
+    // },
+    // {
+    //     word: "TRANS",
+    //     average: 3.634,
+    //     wrong: 10
+    // },
+    // {
+    //     word: "CARTS",
+    //     average: 3.640,
+    //     wrong: 9
+    // },
+    // {
+    //     word: "DRANT",
+    //     average: 3.640,
+    //     wrong: 13
+    // },
+    // {
+    //     word: "PARTS",
+    //     average: 3.641,
+    //     wrong: 8
+    // },
+    // {
+    //     word: "SLANE",
+    //     average: 3.641,
+    //     wrong: 20
+    // },
+    // {
+    //     word: "RESAT",
+    //     average: 3.643,
+    //     wrong: 16
+    // },
+    // {
+    //     word: "DRATS",
+    //     average: 3.643,
+    //     wrong: 8
+    // },
+    // {
+    //     word: "TORSE",
+    //     average: 3.644,
+    //     wrong: 14
+    // },
+    // {
+    //     word: "CARSE",
+    //     average: 3.645,
+    //     wrong: 18
+    // },
+    // {
+    //     word: "CARET",
+    //     average: 3.645,
+    //     wrong: 15
+    // },
+    // {
+    //     word: "PLANT",
+    //     average: 3.646,
+    //     wrong: 11
+    // },
+    // {
+    //     word: "TALCS",
+    //     average: 3.646,
+    //     wrong: 5
+    // },
+    // {
+    //     word: "CLART",
+    //     average: 3.647,
+    //     wrong: 9
+    // },
+    // {
+    //     word: "SCART",
+    //     average: 3.648,
+    //     wrong: 13
+    // },
+    // {
+    //     word: "CLATS",
+    //     average: 3.649,
+    //     wrong: 7
+    // },
+    // {
+    //     word: "TIRLS",
+    //     average: 3.653,
+    //     wrong: 8
+    // },
+    // {
+    //     word: "CROST",
+    //     average: 3.656,
+    //     wrong: 16
+    // },
+    // {
+    //     word: "LARNT",
+    //     average: 3.658,
+    //     wrong: 11
+    // },
+    // {
+    //     word: "LATEN",
+    //     average: 3.658,
+    //     wrong: 10
+    // },
+    // {
+    //     word: "DALTS",
+    //     average: 3.661,
+    //     wrong: 10
+    // },
+    // {
+    //     word: "SNIRT",
+    //     average: 3.662,
+    //     wrong: 21
+    // },
+    // {
+    //     word: "ALERT",
+    //     average: 3.667,
+    //     wrong: 21
+    // },
+    // {
+    //     word: "ARTEL",
+    //     average: 3.671,
+    //     wrong: 25
+    // },
     {
         word: "BRACTS",
         average: 3.484,
@@ -3862,185 +4052,305 @@ const easy =
 
 [
     {
-        word: "CARLE",
-        average: 3.510,
-        wrong: 0
+        "word": "SALET",
+        "average": 3.498823529411765,
+        "wrong": 0
     },
     {
-        word: "SLANT",
-        average: 3.511,
-        wrong: 0
+        "word": "CARLE",
+        "average": 3.5007843137254904,
+        "wrong": 0
     },
     {
-        word: "SALET",
-        average: 3.512,
-        wrong: 0
+        "word": "TRACE",
+        "average": 3.5074509803921567,
+        "wrong": 0
     },
     {
-        word: "CRANE",
-        average: 3.512,
-        wrong: 0
+        "word": "SLANT",
+        "average": 3.508235294117647,
+        "wrong": 0
     },
     {
-        word: "TRACE",
-        average: 3.513,
-        wrong: 0
+        "word": "CRANE",
+        "average": 3.5094117647058822,
+        "wrong": 0
     },
     {
-        word: "REAST",
-        average: 3.514,
-        wrong: 0
+        "word": "CARSE",
+        "average": 3.5098039215686274,
+        "wrong": 0
     },
     {
-        word: "SANER",
-        average: 3.516,
-        wrong: 0
+        "word": "TORSE",
+        "average": 3.5113725490196077,
+        "wrong": 0
     },
     {
-        word: "TORSE",
-        average: 3.516,
-        wrong: 0
+        "word": "SANER",
+        "average": 3.512156862745098,
+        "wrong": 0
     },
     {
-        word: "CARSE",
-        average: 3.518,
-        wrong: 0
+        "word": "REAST",
+        "average": 3.5125490196078433,
+        "wrong": 0
     },
     {
-        word: "SLART",
-        average: 3.519,
-        wrong: 0
+        "word": "SLATE",
+        "average": 3.5129411764705885,
+        "wrong": 0
     },
     {
-        word: "CRATE",
-        average: 3.520,
-        wrong: 0
+        "word": "CARTE",
+        "average": 3.513333333333333,
+        "wrong": 0
     },
     {
-        word: "SLANE",
-        average: 3.521,
-        wrong: 0
+        "word": "SLART",
+        "average": 3.5141176470588236,
+        "wrong": 0
     },
     {
-        word: "CARTE",
-        average: 3.522,
-        wrong: 0
+        "word": "SLANE",
+        "average": 3.5141176470588236,
+        "wrong": 0
     },
     {
-        word: "CARET",
-        average: 3.523,
-        wrong: 0
+        "word": "CRATE",
+        "average": 3.5152941176470587,
+        "wrong": 0
     },
     {
-        word: "SLATE",
-        average: 3.523,
-        wrong: 0
+        "word": "CARET",
+        "average": 3.515686274509804,
+        "wrong": 0
     },
     {
-        word: "LEAST",
-        average: 3.523,
-        wrong: 0
+        "word": "LEAST",
+        "average": 3.5164705882352942,
+        "wrong": 0
     },
     {
-        word: "SNARE",
-        average: 3.526,
-        wrong: 0
+        "word": "SNARE",
+        "average": 3.520392156862745,
+        "wrong": 0
     },
     {
-        word: "TARED",
-        average: 3.527,
-        wrong: 0
+        "word": "TARES",
+        "average": 3.5254901960784313,
+        "wrong": 0
     },
     {
-        word: "TRADE",
-        average: 3.530,
-        wrong: 0
+        "word": "TARED",
+        "average": 3.527843137254902,
+        "wrong": 0
     },
     {
-        word: "TARES",
-        average: 3.531,
-        wrong: 0
+        "word": "TRADE",
+        "average": 3.528235294117647,
+        "wrong": 0
     },
     {
-        word: "PARSE",
-        average: 3.533,
-        wrong: 0
+        "word": "PARSE",
+        "average": 3.5286274509803923,
+        "wrong": 0
     },
     {
-        word: "TASER",
-        average: 3.535,
-        wrong: 0
+        "word": "TASER",
+        "average": 3.5294117647058822,
+        "wrong": 0
     },
     {
-        word: "STARE",
-        average: 3.535,
-        wrong: 0
+        "word": "SOREL",
+        "average": 3.5294117647058822,
+        "wrong": 0
     },
     {
-        word: "SOREL",
-        average: 3.535,
-        wrong: 0
+        "word": "STARE",
+        "average": 3.532941176470588,
+        "wrong": 0
     },
-    {
-        word: "ALTER",
-        average: 3.535,
-        wrong: 0
-    },
-    {
-        word: "TALER",
-        average: 3.536,
-        wrong: 0
-    },
-    {
-        word: "SARED",
-        average: 3.538,
-        wrong: 0
-    },
-    {
-        word: "ARTEL",
-        average: 3.538,
-        wrong: 0
-    },
-    {
-        word: "EARST",
-        average: 3.540,
-        wrong: 0
-    },
-    {
-        word: "TARNS",
-        average: 3.540,
-        wrong: 0
-    },
-    {
-        word: "RATED",
-        average: 3.541,
-        wrong: 0
-    },
-    {
-        word: "CATER",
-        average: 3.542,
-        wrong: 0
-    },
-    {
-        word: "ROSET",
-        average: 3.547,
-        wrong: 0
-    },
-    {
-        word: "DATER",
-        average: 3.548,
-        wrong: 0
-    },
-    {
-        word: "SANED",
-        average: 3.552,
-        wrong: 0
-    },
-    {
-        word: "DENAR",
-        average: 3.552,
-        wrong: 0
-    },
+    // {
+    //     word: "CARLE",
+    //     average: 3.510,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SLANT",
+    //     average: 3.511,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SALET",
+    //     average: 3.512,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "CRANE",
+    //     average: 3.512,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "TRACE",
+    //     average: 3.513,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "REAST",
+    //     average: 3.514,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SANER",
+    //     average: 3.516,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "TORSE",
+    //     average: 3.516,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "CARSE",
+    //     average: 3.518,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SLART",
+    //     average: 3.519,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "CRATE",
+    //     average: 3.520,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SLANE",
+    //     average: 3.521,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "CARTE",
+    //     average: 3.522,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "CARET",
+    //     average: 3.523,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SLATE",
+    //     average: 3.523,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "LEAST",
+    //     average: 3.523,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SNARE",
+    //     average: 3.526,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "TARED",
+    //     average: 3.527,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "TRADE",
+    //     average: 3.530,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "TARES",
+    //     average: 3.531,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "PARSE",
+    //     average: 3.533,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "TASER",
+    //     average: 3.535,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "STARE",
+    //     average: 3.535,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SOREL",
+    //     average: 3.535,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "ALTER",
+    //     average: 3.535,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "TALER",
+    //     average: 3.536,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SARED",
+    //     average: 3.538,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "ARTEL",
+    //     average: 3.538,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "EARST",
+    //     average: 3.540,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "TARNS",
+    //     average: 3.540,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "RATED",
+    //     average: 3.541,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "CATER",
+    //     average: 3.542,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "ROSET",
+    //     average: 3.547,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "DATER",
+    //     average: 3.548,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "SANED",
+    //     average: 3.552,
+    //     wrong: 0
+    // },
+    // {
+    //     word: "DENAR",
+    //     average: 3.552,
+    //     wrong: 0
+    // },
     {
         word: "STEAL",
         average: 3.631,

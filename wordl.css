@@ -45,7 +45,6 @@ body {
 /* GUESS AND ALL SUB DIVS */
 /* CONATINS ALL INFO ON WORDS ENTERED & PATTERNS */
 #guesses {
-    /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +69,6 @@ body {
 
 .tile {
     flex: 1 1 0px;
-    aspect-ratio: 1;
     font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
@@ -88,11 +86,13 @@ body {
  
 .tile.normal {
     max-width: 3.5rem;
+    height: 3.5rem;
 }
 
 .tile.testing {
     font-size: 1rem;
     max-width: 2rem;
+    height: 2rem;
     margin: 0;
 }
 

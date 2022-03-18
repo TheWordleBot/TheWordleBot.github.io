@@ -1,4 +1,4 @@
-const common_words = ["CIGAR",
+const official = ["CIGAR",
 "REBUT",
 "SISSY",
 "HUMPH",
