@@ -128,9 +128,17 @@ button:hover, .tile:hover {
     color: white;
     height: 2rem;
     font-size: 1.2rem;
-    width: min(95%, 10rem);
+    width: min(95%, 12rem);
     text-align: center;
     margin: .5rem;
+}
+
+#word_entered::placeholder {
+    color: var(--off-white);
+}
+
+#word_entered:focus::placeholder {
+    color: transparent;
 }
 
 *:focus {
@@ -143,6 +151,7 @@ button:hover, .tile:hover {
     margin: 1rem;
     text-align: center;
     flex-basis: 100%;
+    font-variant-caps: small-caps;
 }
 
 #header h1, h3 {
@@ -199,8 +208,10 @@ h3.by_likelihood {
     display: inline-block;
     position: absolute;
     width: 100%;
-    font-size: 1rem;
+    font-size: .75rem;
     top: 1rem;
+    overflow-y: scroll;
+    max-height: 350px;
 }
 
 .showlist div:not(.showlist div.visible) {
@@ -218,6 +229,12 @@ h3.by_likelihood {
 
 .visible p {
     margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.label {
+    display: inline;
+    vertical-align: middle;
 }
 
 #mode {
@@ -228,6 +245,7 @@ h3.best_options {
     font-size: .875rem;
     text-align: center;
     margin-bottom: .25rem;
+    text-transform: uppercase;
 }
 
 #answers {
@@ -471,6 +489,7 @@ input[type=checkbox] {
 #letter-info h2 {
     text-align: center;
     margin: 0.75rem;
+    font-variant-caps: small-caps;
 }
 
 .best-letters {
@@ -508,4 +527,68 @@ input[type=checkbox] {
 .frequency {
     font-size: .9rem;
     font-style: italic;
+}
+
+/* sliders */
+.switch {
+    position: relative;
+    display: inline-block;
+    height: 1.375rem;
+    aspect-ratio: 1.765;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 76.5%;
+  aspect-ratio: 1;
+  /* width: 26px; */
+  left: 6.67%;
+  bottom: 13%;
+  background-color: white;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  transform: translateX(100%);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 100vh;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }

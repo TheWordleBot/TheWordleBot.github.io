@@ -117,13 +117,18 @@ $(document).ready(function() {
     });
 
     $(document).on('click', '.showlist', function() {
-        $(this).children().addClass("visible");
+        if ($(this).children().hasClass("visible")) {
+            ($(this).children().removeClass("visible"));
+        } else {
+            $(this).children().addClass("visible");
+        }
+
     });
 
-    $(document).on('click', '.close', function(e){
-        e.stopPropagation();
-        $(this).parent().removeClass("visible");
-    });
+    // $(document).on('click', '.close', function(e){
+    //     e.stopPropagation();
+    //     $(this).parent().removeClass("visible");
+    // });
 });
 
 function makeTables(val, c) {
@@ -168,11 +173,11 @@ function setLength() {
     common = common_words.filter((element) => {return element.length == word_length});
     words = big_list.filter((element) => {return element.length == word_length; });
 
-    // for (let i = 0; i < common.length; i++) {
-    //     if (!official.includes(common[i])) {
-    //         console.log(common[i]);
-    //     }
-    // }
+    for (let i = 0; i < common.length; i++) {
+        if (!official.includes(common[i])) {
+            console.log(common[i]);
+        }
+    }
 }
 
 function update(initial) {
@@ -340,19 +345,13 @@ function updateLists(sorted, full_list) {
     for (let i = 0; i < sorted.length; i++) {
         potential_answers.innerHTML += sorted[i].word + "<br>";
     }
-    potential_answers.innerHTML = "<p>" + potential_answers.innerHTML + "</p><button class = 'close'>&#10006</button>";
+    potential_answers.innerHTML = "<p>" + potential_answers.innerHTML + "</p>";
 
     technically_words.innerHTML = "";
     for (let i = 0; i < less_likely.length; i++) {
         technically_words.innerHTML += less_likely[i].word + "<br>";
     }
-    technically_words.innerHTML = "<p>" + technically_words.innerHTML + "</p><button class = 'close'>&#10006</button>";
-
-    // var close = document.createElement("button");
-    // close.setAttribute("class", "close");
-    // close.innerHTML = "&#10006";
-    // technically_words.innerHTML += close;
-    // potential_answers.innerHTML += close;
+    technically_words.innerHTML = "<p>" + technically_words.innerHTML + "</p>";
     
     if (sorted.length <= 2) {
         finalOptions(sorted, less_likely);
@@ -506,6 +505,8 @@ function useTop(filtered, full_list, initial, isBot) {
         check_list = check_list.concat(full_list);
     }
 
+    check_list = [...new Set(check_list)]
+
     var best_words = [];
     var min = filtered.length;
 
@@ -514,7 +515,8 @@ function useTop(filtered, full_list, initial, isBot) {
         var differences = [];
         var compare = check_list[pos];
         var weighted = 0;
-        
+
+
         for (let i = 0; i < filtered.length; i++) {
             var s = filtered[i];
             var diff = getDifference(compare, s);
@@ -536,6 +538,7 @@ function useTop(filtered, full_list, initial, isBot) {
             
             if (weighted > min && isBot) continue outer;
         }
+
 
         min = Math.min(weighted, min);
 

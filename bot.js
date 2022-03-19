@@ -59,7 +59,7 @@ function testStartingWords() {
     var test_size = 250;
     var current = -1;
 
-    setInterval(function() {
+    var iv = setInterval(function() {
         if (averages.length > current) {
             current = averages.length;
 
@@ -199,22 +199,21 @@ function setupTest(word) {
 
 function runBot(guess, hard_mode, remembers_words) {
     const startTime = performance.now();
-    const test_size = common.length;
-    // const test_size = 300;
-    const increment = 1;
+    // const test_size = common.length;
+    const test_size = 300;
     var sum = 0;
     var count = 0;
     var wrong = 0;
     var missed = [];
     var scores = new Array(7).fill(0);
-    // var sample = [];
-    var sample = common.slice();
+    var sample = [];
+    // var sample = common.slice();
 
-    // for (let i = 0; i < test_size; i++) {
-    //     let index = Math.round(Math.random()*(common.length-1));
-    //     if (!sample.includes(common[index])) sample.push(common[index]);
-    //     else i--;
-    // }
+    for (let i = 0; i < test_size; i++) {
+        let index = Math.round(Math.random()*(common.length-1));
+        if (!sample.includes(common[index])) sample.push(common[index]);
+        else i--;
+    }
 
     var iv = setInterval(function() {
         document.getElementById("grid").innerHTML = "";
