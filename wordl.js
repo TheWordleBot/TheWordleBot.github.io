@@ -172,12 +172,6 @@ function setLength() {
 
     common = common_words.filter((element) => {return element.length == word_length});
     words = big_list.filter((element) => {return element.length == word_length; });
-
-    for (let i = 0; i < common.length; i++) {
-        if (!official.includes(common[i])) {
-            console.log(common[i]);
-        }
-    }
 }
 
 function update(initial) {
@@ -509,6 +503,7 @@ function useTop(filtered, full_list, initial, isBot) {
 
     var best_words = [];
     var min = filtered.length;
+    var max = 0;
 
     outer:
     for (let pos = 0; pos < check_list.length; pos++) {
@@ -518,8 +513,8 @@ function useTop(filtered, full_list, initial, isBot) {
 
 
         for (let i = 0; i < filtered.length; i++) {
-            var s = filtered[i];
-            var diff = getDifference(compare, s);
+            let s = filtered[i];
+            let diff = getDifference(compare, s);
 
             if (differences[diff] != null) {
                 differences[diff]++;
@@ -536,17 +531,36 @@ function useTop(filtered, full_list, initial, isBot) {
                 weighted += (freq/list_size)*freq - ((freq-1)/list_size)*(freq-1);
             }
             
-            if (weighted > min && isBot) continue outer;
+            // if (weighted > min && isBot) continue outer;
         }
+        
+        let threes = 0;
+        let not_three = filtered.length;
+        Object.keys(differences).forEach(function(key) {
+            if (differences[key] == 0) {
+                threes += 1/filtered.length;
+            } else {
+                threes += 1/filtered.length*1/differences[key];
+            }
+        });
+        threes = Math.min(1, threes);
+        let adjusted = (1-threes)*weighted;
 
+        // console.log("Average for " + compare + ": " + weighted);
+        // console.log("3s: " + threes);
+        // console.log("adjusted: " + adjusted);
+        // console.log(differences);
 
         min = Math.min(weighted, min);
+        max = Math.max(threes, max);
 
-        best_words.push({word: compare, rank: weighted});
+
+        best_words.push({word: compare, rank: weighted, threes: threes, adjusted: adjusted});
         
         if (weighted < 1 && isBot) break;
     }
 
+    // best_words.sort((a, b) => a.adjusted >= b.adjusted ? 1 : -1);
     best_words.sort((a, b) => a.rank >= b.rank ? 1 : -1);
 
     if (!isBot) pairings = [];

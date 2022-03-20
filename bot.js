@@ -39,10 +39,10 @@ function testStartingWords() {
     console.log("testing");
     // var check_list = update(true);
 
-    // var check_list = easy;
-    var check_list = hard;
-    // check_list = check_list.sort((a, b) => a.average >= b.average ? 1 : -1);
-    check_list = check_list.sort((a, b) => a.wrong >= b.wrong ? 1 : -1);
+    var check_list = easy;
+    // var check_list = hard;
+    check_list = check_list.sort((a, b) => a.average >= b.average ? 1 : -1);
+    // check_list = check_list.sort((a, b) => a.wrong >= b.wrong ? 1 : -1);
     check_list = check_list.map(a => a.word);
     check_list = check_list.filter(a => a.length == word_length);
     
@@ -50,34 +50,27 @@ function testStartingWords() {
     console.log(check_list);
 
 
-    var hard_mode = true;
-    // var hard_mode = false;
+    // var hard_mode = true;
+    var hard_mode = false;
     
 
     var i = 0;
     var count = 0;
-    var test_size = 250;
+    var test_size = check_list.length;
     var current = -1;
+
+    if (hard_mode) newlist = hard.slice();
+    else newlist = easy.slice();
 
     var iv = setInterval(function() {
         if (averages.length > current) {
             current = averages.length;
 
             // while (true) {
-            //     if (hard_mode) {
-            //         if (hard.filter(a => a.word == check_list[i]).length) {
-            //             i++;
-            //         } else {
-            //             break;
-            //         }
-            //     }
-
-            //     else {
-            //         if (easy.filter(a => a.word == check_list[i]).length) {
-            //             i++;
-            //         } else {
-            //             break;
-            //         }
+            //     if (newlist.filter(a => a.word == check_list[i]).length) {
+            //         i++;
+            //     } else {
+            //         break;
             //     }
             // }
 
@@ -92,13 +85,12 @@ function testStartingWords() {
                 document.getElementById("test-settings").remove();
             }
             
-            var average = runBot(check_list[i], hard_mode, false);
+            let average = runBot(check_list[i], hard_mode, false);
             
             i++;
-            count++;
         }
         
-        if (count > test_size) {
+        if (i > test_size) {
             clearInterval(iv);
         }
     }, 1);
@@ -201,9 +193,9 @@ function runBot(guess, hard_mode, remembers_words) {
     const startTime = performance.now();
     // const test_size = common.length;
     const test_size = 300;
+
     var sum = 0;
     var count = 0;
-    var wrong = 0;
     var missed = [];
     var scores = new Array(7).fill(0);
     var sample = [];
@@ -221,7 +213,6 @@ function runBot(guess, hard_mode, remembers_words) {
         let n = wordleBot(guess, sample[count], hard_mode, remembers_words);
         if (n == 7) {
             // clearInterval(iv);
-            wrong++;
             missed.push(sample[count]);
         }
 
@@ -259,10 +250,11 @@ function runBot(guess, hard_mode, remembers_words) {
 
             document.getElementById("grid").innerHTML = "";
 
-            var average = parseFloat(sum/count);
+            let average = parseFloat(sum/count);
+            let wrong = missed.length/common.length;
             document.getElementsByClassName("average")[0].innerHTML = "";
 
-            var summary = guess + " solved " + (test_size - wrong) + "/" + test_size + " words with an average of " + average.toFixed(3) + " guesses per solve.";
+            let summary = guess + " solved " + (test_size - missed.length) + "/" + test_size + " words with an average of " + average.toFixed(3) + " guesses per solve.";
 
             if (missed.length) {
                 summary += "<div id = 'wrongs'>Missed words: ";
@@ -278,12 +270,24 @@ function runBot(guess, hard_mode, remembers_words) {
             document.getElementsByClassName("current")[0].innerHTML = "<div id = 'summary'>" + summary + "</div>";
             clearInterval(iv);
 
-            averages.push({word: guess, average: average, wrong: wrong/common.length});
+            let data = {word: guess, average: average, wrong: wrong};
+
+            averages.push(data);
             averages.sort((a, b) => a.average >= b.average ? 1 : -1);
+
+            // let index = newlist.map(function(e) { return e.word; }).indexOf(guess);
+
+            // if (index == -1) {
+            //     newlist.push(data);
+            // } else if (newlist[index].average != average || newlist[index].wrong != wrong) {
+            //     newlist[index] = data;
+            // }        
+            // console.log(newlist);
 
             const endTime = performance.now();   
             console.log(guess + " --> " + average + " --> " + (endTime - startTime)/1000 + " seconds");
             console.log(averages);
+
             pairings = [];
         }
     }, 1);
