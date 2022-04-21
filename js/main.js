@@ -193,7 +193,7 @@ function writeBestGuessList(guesses, list_length) {
             data = num_guesses + " guesses"
         } else data = num_guesses + " guesses";
 
-        let word = "<div class = 'suggestion'>" + guesses[i].word + ": </div>";
+        let word = "<div class = 'suggestion'>" + (i+1) + ". " + guesses[i].word + ": </div>";
         let score = "<div class = 'score'>" + data + "</div>";
         list += "<li>" + word + score + "</li>";
     }

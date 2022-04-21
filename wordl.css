@@ -11,6 +11,9 @@
     --bar-color: #3891A6;
     --words-visibility: "transparent";
     --gray-color: #424242;
+
+    touch-action: pan-x pan-y;
+    height: 100%;  
 }
 
 html {
@@ -230,7 +233,8 @@ button:hover, .tile:hover, .increment:hover {
     justify-content: center;
     align-items: center;
     position: relative;
-    margin: .25rem;
+    margin: 0.25rem;
+    margin-top: 0.5rem;
 }
 
 #top-of-screen h1, h3 {
@@ -595,6 +599,7 @@ button.bot {
     color: var(--background);
     text-decoration: underline;
     font-weight: bold;
+    border: solid;
 }
 
 .disclaimer {
@@ -622,8 +627,8 @@ input[type=checkbox] {
 
 .close {
     position: absolute;
-    top: .25rem;
-    left: .25rem;
+    top: 0rem;
+    left: 0rem;
     /* background: var(--background); */
     color: var(--text-color);
     font-size: 1.25rem;
