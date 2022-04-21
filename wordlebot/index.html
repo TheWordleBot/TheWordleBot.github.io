@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="X2IQhDCXYOzS3VVvN1dlf4-8spKGnTgug0gH_tOqfBM" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://css.gg/bot.css' rel='stylesheet'>
+	<link rel = "stylesheet" type = "text/css" href = "wordl.css">
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <script type = "text/javascript" src = "word_lists/allwords.js"></script>
+    <script type = "text/javascript" src = "word_lists/commonwords.js"></script>
+    <script type = "text/javascript" src = "word_lists/officialanswers.js"></script>
+    <script type = "text/javascript" src = "word_lists/officialguesses.js"></script>    
+    <script type = "text/javascript" src = "word_lists/rankings.js"></script>
+
+    <script type = "text/javascript" src = "js/setup.js"></script>
+    <script type = "text/javascript" src = "js/class.js"></script>
+    <script type = "text/javascript" src = "js/main.js"></script>
+    <script type = "text/javascript" src = "js/bot.js"></script>
+	<title>WordleBot</title>
+</head>
+<body>
+    <div id="container">
+        <div id="top-of-screen">
+            <!-- <div id="top-container"> -->
+                <h1 id = 'title'></h1>
+                <button class="header-button test" onclick="setupTest();"><i class='gg-bot'></i></button>
+                <button class = "header-button open settings" onclick="createSettingsPage();"><i class="fa fa-gear"></i></button>
+                <button class="header-button open info" onclick="createInfoPage();"><i class='fa fa-info-circle'></i></button>
+            <!-- </div> -->
+            <!-- <button id="wordlebot" onclick="testStartingWords();">Run bot</button> -->
+        </div>
+
+        <div class="info screen"></div>
+
+        <div class="settings screen">
+            <button class="settings close"></button>
+            <h3 class = 'top-header'>Customize Your Bot</h3>
+
+            <p>
+                Tell me the best guesses for:     
+                <select name="bot-type" id="bot-type">
+                    <option value="Wordle">Wordle</option>
+                    <option value="Woodle">Woodle</option>
+                    <option value="W-Peaks">Wordle Peaks</option>
+                </select>
+            </p>
+            <p> 
+                Show me the best 
+                <select name="word-length" id="word-length"></select>
+                letter words
+            </p>
+            <p>
+                Potential Answers: 
+                <select name="wordbank" id="wordbank">
+                    <option value="restricted">Most Likely Answers</option>
+                    <option value="complete">All Possible Answers</option>
+                </select>
+            </p>
+        </div>
+
+        <div id="guesses">
+            <button id="refresh" onclick="resetPage();"><i class='fa fa-refresh'></i></button>
+            <input type="text">
+            <div id="grid"></div>
+            <div id="next-previous-buttons"></div>
+        </div>
+
+        <div id="suggestions">
+            <h2 class="possibilities total"></h2>
+            <h3 class="possibilities separated"></h3>
+            <h3 class="mini-title"></h3>
+        </div>
+        <p class = 'twitter'>
+        Got Feedback? Reach out to me on <a href = 'https://twitter.com/ybenhayun'>Twitter</a>.
+        </p>
+<!-- 
+        <div id="letter-info">
+            <h2>Most Common Letters</h2>
+            <ul class="best-letters"></ul>
+        </div> -->
+    </div>
+
+</body>
+</html>
