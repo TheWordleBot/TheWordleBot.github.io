@@ -35,16 +35,17 @@ function setWordbank() {
     wordbank = document.getElementById("wordbank").value;
 
     if (wordbank == 'restricted') {
-        if (word_length == 5) {
-            common = common_words.filter(a => a.game == 'official' || a.game == 'quordle');
-        } else {
-            common = common_words.filter(a => a.game != 'unlimited');
-        }
-    } else {
+        // if (word_length == 5) {
+        //     common = common_words.filter(a => a.game == 'official' || a.game == 'quordle');
+        // } else {
+        //     common = common_words.filter(a => a.game != 'unlimited');
+        // }
         common = common_words.slice();
+    } else {
+        common = all_common_words.slice();
     }
 
-    common = common.map(a => a.word).filter(a => a.length == word_length).sort();
+    common = common.filter(a => a.length == word_length).sort();
     common = [...new Set(common)];
     common = common.sort();
     // common = officical_answers.slice(); // uncomment to use original wordle answer list 
@@ -185,19 +186,25 @@ function writeBestGuessList(guesses, list_length) {
         let num_wrong = ((1-guesses[i].wrong)*100).toFixed(2);
 
         if (guesses[i].wrong > 0 && guesses[i].wrong != NOT_YET_TESTED) {
-            data = num_guesses + " guesses, "
-            + num_wrong + "% solve rate";
+            // data = num_guesses + " guesses, "
+            // + num_wrong + "% solve rate";
+            data = num_wrong + "% solve rate";
         } else if (guesses[i].wrong == NOT_YET_TESTED) {
             data = "not yet tested ";
         } else if (!guessesSoFar(0)) {
             data = num_guesses + " guesses"
-        } else data = num_guesses + " guesses";
+        } else data = num_guesses + " guesses left";
 
-        let word = "<div class = 'suggestion'>" + (i+1) + ". " + guesses[i].word + ": </div>";
-        let score = "<div class = 'score'>" + data + "</div>";
-        list += "<li>" + word + score + "</li>";
+        list += createListItem(guesses[i].word, data, i+1);
     }
+
     return list;
+}
+
+function createListItem(word, data, rank) {
+    let name = "<div class = 'suggestion'>" + rank + ". " + word + ": </div>";
+    let score = "<div class = 'score'>" + data + "</div>";
+    return "<li>" + name + score + "</li>";    
 }
 
 function updateHeaders(words_left, likely_answers, unlikely_answers) {
@@ -307,7 +314,7 @@ function getSlidePosition(slide) {
 
 // returns the number of guesses made to far
 function guessesSoFar() {
-    return (document.getElementsByClassName("tile").length/word_length);
+    return document.getElementsByClassName("row").length;
 }
 
 // checks if the number of guesses so far equals number
@@ -334,13 +341,15 @@ function makeTables(val, c) {
     if (!words.includes(val)) return;
 
     if (val) {
-        let row = document.createElement('div');
-        row.setAttribute('class', 'row ' + c);
+        // let row = document.createElement('div');
+        // row.setAttribute('class', 'row ' + c);
 
-        for (let i = 0; i < word_length; i++) {
-            row.innerHTML += "<button class = 'B tile " + bot.type + "'>" + val[i] + "</button>";
-        }
+        // for (let i = 0; i < word_length; i++) {
+        //     row.innerHTML += "<button class = 'B tile " + bot.type + "'>" + val[i] + "</button>";
+        // }
         
+        let row = createRow(val, c);
+
         if (bot.isFor('Woodle')) row.innerHTML += TRACKER_BUTTONS;
         document.getElementById("grid").append(row);
         
@@ -355,9 +364,21 @@ function makeTables(val, c) {
     document.getElementById("word-entered").value = "";
 }
 
+function createRow(word, mode) {
+    let row = document.createElement('div'), text = "";
+    row.setAttribute('class', 'row ' + mode);
+    for (let i = 0; i < word.length; i++) {
+        text += "<button class = 'B tile " + bot.type + "'>" + word[i] + "</button>";
+    }
+
+    row.innerHTML = text;
+
+    return row;
+}
+
 function addButtons() {
-    let buttons = "<button class = 'filter'>calculate next guess</button>"
-        buttons += "<button class = 'undo'>remove last guess</button>"
+    let buttons = "<button class = 'undo'>remove last guess</button>";
+    buttons += "<button class = 'filter'>calculate next guess</button>";
 
     document.getElementById('next-previous-buttons').innerHTML += buttons;
 

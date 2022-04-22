@@ -156,8 +156,8 @@ function swapDiv(event, elem) {
 }
 
 function setupTest(word, difficulty) {
-    TEST_SIZE = 1000;
-    // TEST_SIZE = common.length;
+    // TEST_SIZE = 1000;
+    TEST_SIZE = common.length;
 
     let test_center = createBarGraphs();
     let menu = createBotMenu(word);

@@ -108,37 +108,41 @@ function createWordLengthSelector() {
 
 function createInfoPage() {
     let info = document.getElementsByClassName('info screen')[0];
+    let example_row = createRow('CRUST', 'dummy');
+    example_row.getElementsByClassName('tile')[3].classList.replace(INCORRECT, WRONG_SPOT);
+    example_row.getElementsByClassName('tile')[4].classList.replace(INCORRECT, CORRECT);
+
+
+    let example_list = document.createElement('ul');
+    example_list.setAttribute('class', 'word-list');
+    
+    example_list.innerHTML = createListItem('ALEPH', '2.290 guesses left', 1) + 
+    createListItem('PLENA', '2.323 guesses left', 2) + 
+    createListItem('PHIAL', '2.323 guesses left', 3) +
+    createListItem('SPALE', '2.323 guesses left', 4);
+    
+    let example_wrong = document.createElement('ul');
+    example_wrong.setAttribute('class', 'word-list dummy');
+    example_wrong.innerHTML = createListItem('ALEPH', '96.77% solve rate', 1)
 
     info.innerHTML = 
         `<button class="info close"></button>
         <h3 class="top-header">How does this work?</h3>
         <p>Simply enter in your last guess, click on the tiles until the colors match, hit calculate, 
             and the WordleBot will give you sthe best possible guesses from that point.</p>
-        <h3 class = 'mini'>After each guess you should see something like this:</h3>
+        <h3 class = 'mini'>After each guess you should see something like this:</h3><div class = 'examples'>` + example_row.outerHTML + example_list.outerHTML + 
 
-        <img id = 'example-tiles' src="images/exampletiles.png" alt="example tiles">
-        <img id = 'example-answers' src="images/exampleanswers.png" alt="example answers"></img>
-
-        <p>
-        This means the best guess from this point would be ALEPH, PLENA, or SPALE, 
-        and that you have an average of 2.214 guesses left. 
-        </p>
-        <p>
-            Toggle the switch to turn on hard mode, and you'll be given completely different suggestions.
-        In this case, the top 4 would've been SPILT, SALET, SPALT, and SPELT (on hard mode you have to include
-        all previously given hints).
-        </p>
-        <p>
-        This bot works on words from 4 to 11 letters long.
-        You can also switch from 'Most Likely Answers' to a much, much, much larger list. 
-        The larger list is based on the answer bank from WordleUnlimited, but since that was recently taken down I might have to update that.
-        </p>
-        <p>
+        `</div><p>
+        This means the best guess from this point would be ALEPH,
+        and that you have an average of 2.290 guesses left. If you see:
+        </p>`
+        + example_wrong.outerHTML + 
+        `<p>That means ALEPH will only solve 96.77% of the remaining possible answers within 6 guesses.
+        Generally speaking, you should only see this if you're playing on hard mode.</p>`
+        +
+        `<p>
         Want to see how good your starting word is? Click the <button class = 'test dummy' disabled><i class="gg-bot"></i></button> on the top right to get a good idea.
         </p>`
-        // <p>
-        // Got Feedback? Reach out to me on <a href = 'https://twitter.com/ybenhayun'>Twitter</a>.
-        // </p>`
     
     info.classList.remove('hide');
     info.classList.add('display');
@@ -147,6 +151,7 @@ function createInfoPage() {
     close.addEventListener('click', function() {
         info.classList.remove("display");
         info.classList.add("hide");
+        info.innerHTML = "";
     });
 }
 
@@ -227,7 +232,7 @@ function createOptions(div, position) {
 function createHardModeSwitch(div) {
     let switch_label = document.createElement('div');
     switch_label.setAttribute('class', 'hard label');
-    switch_label.innerHTML = "Hard Mode: "
+    switch_label.innerHTML = "Show me the best guesses for 'Hard Mode': "
 
     let switch_container = document.createElement('label');
     switch_container.setAttribute('class', 'hard switch');

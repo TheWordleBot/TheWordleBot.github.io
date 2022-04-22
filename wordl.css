@@ -128,6 +128,51 @@ body {
 #next-previous-buttons button {
     text-decoration: underline;
     font-size: .95rem;
+    position: relative;
+    height: 3rem;
+}
+
+*:before, *:after {
+    content: "";
+}
+
+/* lines for arrows */
+#next-previous-buttons button::after {
+    height: 8%;
+    width: 20%;
+    background: var(--text-color);
+    position: absolute;
+    bottom: 0;
+}
+
+.filter::after {
+    right: 6%;
+}
+
+.undo::after {
+    left: 6%;
+}
+
+/* triangle for arrows */
+#next-previous-buttons button::before {
+    width: 0;
+    height: 0;
+    background: transparent;
+    position: absolute;
+    bottom: 0;
+    border-top: solid 0.5em transparent;
+    border-bottom: solid 0.5em transparent;
+    bottom: -12%;
+}
+
+.filter::before {
+    right: 5%;
+    border-left: solid 0.5em var(--text-color);
+}
+
+.undo::before {
+    left: 5%;
+    border-right: solid 0.5em var(--text-color);
 }
 
 button {
@@ -199,6 +244,7 @@ button:hover, .tile:hover, .increment:hover {
     /* border: solid 1px black; */
     border: none;
     border-bottom: solid 2px var(--correct-color);
+    border-radius: none;
     color: var(--text-color);
     height: 2rem;
     font-size: 1.2rem;
@@ -266,12 +312,26 @@ button:hover, .tile:hover, .increment:hover {
     color: var(--background);
 }
 
-.screen p {
+.screen p:not(.description) {
     margin: .75rem;
 }
 
 .screen .close {
     color: var(--background);
+}
+
+.mini-header {
+    font-size: 1.5rem;
+    border-bottom: solid 1px black;
+    width: 90%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.description {
+    margin-top: 0;
+    font-size: .8rem;
+    color: var(--incorrect-color);
 }
 
 .top-header {
@@ -285,7 +345,6 @@ button:hover, .tile:hover, .increment:hover {
     font-size: .875rem;
     text-align: left;
     border-bottom: solid 1px black;
-    width: 90%;
 }
 
 .pictures {
@@ -304,9 +363,30 @@ button:hover, .tile:hover, .increment:hover {
     animation: display .7s forwards;
 }
 
-.dummy {
+.test.dummy {
    display: inline; 
    color: var(--background);
+}
+
+.row.dummy {
+    margin-top: .5rem;
+}
+
+.row.dummy > .tile {
+    font-size: 1.5rem;
+    max-width: 3.5rem;
+    margin: 1px;
+    aspect-ratio: 1;
+}
+
+.word-list.dummy {
+    position: relative;
+    width: 85%;
+}
+
+.examples {
+    position: relative;
+    width: 85%;
 }
 
 @keyframes hide {
@@ -864,9 +944,14 @@ input:checked + .slider:before {
     font-size: .6125rem;
 }
 
-.twitter {
+.links {
     text-align: center;
     font-weight: bold;
+    margin-bottom: 0;
+}
+
+.links:last-child {
+    margin-top: 0;
 }
 
 a {
