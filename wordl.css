@@ -5,7 +5,6 @@
     --ignore-color:rgb(245, 245, 245);
     --input-color: gray;
     --off-white: #FCF7F8;
-    /* --background: #D0F4EA; */
     --background: #191919;
     --text-color: white;
     --bar-color: #3891A6;
@@ -16,14 +15,10 @@
     height: 100%;  
 }
 
-html {
-    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
-}
-
 html, body {
+    font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
     height: 100%;
     overflow-x: hidden;
-    /* overflow-y: hidden; */
     margin: 0;
     padding: 0;
     color: var(--text-color);
@@ -46,10 +41,6 @@ body {
     padding: 0;
 }
 
-#container > div {
-    flex-grow: 0;
-}
-
 /* GUESS AND ALL SUB DIVS */
 /* CONATINS ALL INFO ON WORDS ENTERED & PATTERNS */
 #guesses {
@@ -59,7 +50,6 @@ body {
     align-items: center;
     flex-direction: column;
     width: 100%;
-    /* margin-top: -1.5rem; */
     margin-top: -1rem;
 }
 
@@ -93,15 +83,8 @@ body {
     flex: 1 1 0px;
     font-size: 1.5rem;
     font-weight: bold;
-    text-align: center;
     border-radius: 0;
     border: none;
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100%;
     position: relative;
 }
@@ -119,9 +102,7 @@ body {
 
 #next-previous-buttons {
     margin-top: .5rem;
-    margin-bottom: .5rem;
     display: flex;
-    justify-content: center;
     column-gap: 1rem;
 }
 
@@ -132,13 +113,10 @@ body {
     height: 3rem;
 }
 
-*:before, *:after {
-    content: "";
-}
-
 /* lines for arrows */
-#next-previous-buttons button::after {
-    height: 8%;
+.filter::after, .undo::after {
+    content: "";
+    height: 7%;
     width: 20%;
     background: var(--text-color);
     position: absolute;
@@ -154,7 +132,8 @@ body {
 }
 
 /* triangle for arrows */
-#next-previous-buttons button::before {
+.filter::before, .undo::before {
+    content: "";
     width: 0;
     height: 0;
     background: transparent;
@@ -179,13 +158,6 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 2rem;
-    /* font-size: .875rem; */
-    font-size: .9rem;
-    /* border-radius: 0.25rem; */
-    /* background: var(--off-white); */
-    /* color: var(--text-color); */
-    /* border: 2px solid var(--incorrect-color); */
     color: var(--text-color);
     border: none;
     background-color: transparent;
@@ -193,7 +165,7 @@ button {
 
 select {
     border-radius: 0.125rem;
-    color: var(--incorrect-color);
+    color: var(--background);
     text-align: center;
 }
 
@@ -207,10 +179,8 @@ select {
 
 .header-button {
     position: absolute;
-    /* top: 1.25rem; */
     z-index: 100;
     font-size: 1.25rem;
-    /* padding: 0.5rem; */
     text-align: center;
 
     padding: 0;
@@ -238,10 +208,8 @@ button:hover, .tile:hover, .increment:hover {
 }
 
 #word-entered {
-    /* background-color: var(--input-color); */
     background-color: transparent;
     caret-color: white;
-    /* border: solid 1px black; */
     border: none;
     border-bottom: solid 2px var(--correct-color);
     border-radius: none;
@@ -271,9 +239,6 @@ button:hover, .tile:hover, .increment:hover {
 /* HEADING & TITLE */
 /* INCLUDES TITLE @ TOP OF PAGE AND LETTER COUNT SELECTOR */
 #top-of-screen {
-    /* margin: 1rem; */
-    /* text-align: center; */
-    /* flex-basis: 100%; */
     font-variant-caps: small-caps;
     display: flex;
     justify-content: center;
@@ -289,6 +254,10 @@ button:hover, .tile:hover, .increment:hover {
     font-size: 1.75rem;
 }
 
+#top-of-screen button {
+    height: 2rem;
+}
+
 .screen {
     width: min(630px, 95%);
     margin: auto;
@@ -296,7 +265,6 @@ button:hover, .tile:hover, .increment:hover {
     overflow: hidden;
     text-align: center;
     background: var(--off-white);
-    /* border: solid 1px black; */
     box-shadow: var(--gray-color) 0 0 0 1px;
     z-index: 100;
     left: 0; 
@@ -414,35 +382,23 @@ button:hover, .tile:hover, .increment:hover {
 /* CONTAINS ALL INFO SHOWN IN SUGGESTION BOX */
 /* LIST OF BEST ANSWERS, NUMBER OF WORDS LEFT, REFRESH BUTTON */
 #suggestions {
-    margin-top: .5rem;
-    width: min(630px, 95%);
-    margin: auto;
     position: relative;
     text-align: center;
-    /* background: #FFC2B4; */
-    /* border: solid 3px black; */
-    /* border-radius: .75rem; */
-    /* overflow-x: hidden; */
     width: 100%;
-    /* background: var(--incorrect-color); */
-    /* font-family: 'Clear Sans', monospace; */
     margin-top: 1rem;
     max-height: 450rem;
     border: solid 2px var(--gray-color);
     padding-top: 1rem;
-    /* background: rgb(34 34 86); */
     background-color: rgb(39 39 39);
 }
 
 .possibilities.total {
     text-align: center;
     margin: 0;
-    /* margin-top: .5rem; */
 }
 
 .possibilities.separated {
     font-size: .75rem;
-    /* font-size: .625rem; */
     text-align: center;
 }
 
@@ -467,11 +423,9 @@ button:hover, .tile:hover, .increment:hover {
 }
 
 .showlist div:not(.showlist div.visible) {
-    background: transparent;
-    border: none;
-    z-index: -1;
-    color: transparent;
-    margin-top: 500rem;
+    height: 0;
+    width: 0; 
+    overflow: hidden;
 }
 
 .visible {
@@ -496,12 +450,9 @@ button:hover, .tile:hover, .increment:hover {
 }
 
 h3.mini-title {
-    /* font-size: .875rem; */
     font-size: 1rem;
     text-align: center;
-    /* margin-bottom: .25rem; */
     margin-bottom: 1rem;
-    /* text-transform: uppercase; */
     margin-top: 1.5rem;
     text-decoration: underline;
 }
@@ -519,15 +470,15 @@ h3.mini-title {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    /* background: var(--incorrect-color); */
-    /* background: var(--background); */
 }
 
 .back {
     z-index: -1;
     color: transparent;
-    margin-top: 500rem;
     position: absolute;
+    height: 0;
+    width: 0;
+    overflow: hidden;
 }
 
 .front {
@@ -620,9 +571,7 @@ li:not(.likely, .others) {
     display: inline;
     position: absolute;
     right: 1rem;
-    /* font-style: italic; */
     font-weight: bold;
-    /* color: var(--correct-color); */
     color: rgb(101 189 94)
 }
 
@@ -670,7 +619,6 @@ li:not(.likely, .others) {
     align-items: center;
     flex-direction: column;
     row-gap: 1.5rem;
-    /* background: var(--background); */
     background: var(--off-white);
     padding: .5rem;
 }
@@ -686,11 +634,6 @@ button.bot {
     font-size: .875rem;
     font-weight: normal;
 }
-/* 
-button.info {
-    padding: .5rem;
-    text-align: center;
-} */
 
 #testword {
     text-align: center;
@@ -709,7 +652,6 @@ input[type=checkbox] {
     position: absolute;
     top: 0rem;
     left: 0rem;
-    /* background: var(--background); */
     color: var(--text-color);
     font-size: 1.25rem;
 }
@@ -865,12 +807,10 @@ input[type=checkbox] {
 }
 
 input:checked + .slider {
-  /* background-color: #2196F3; */
   background-color: var(--correct-color);
 }
 
 input:focus + .slider {
-  /* box-shadow: 0 0 1px #2196F3; */
   box-shadow: 0 0 1px var(--correct-color);
 }
 

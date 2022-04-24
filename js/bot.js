@@ -323,7 +323,7 @@ function wordleBot(guess, answer, difficulty) {
         makeTables(guess, "testing");
 
         let diff = bot.getDifference(guess, answer);
-        bot.setRowColor(diff, attempts-1);
+        bot.setRowColor(diff, document.getElementsByClassName('row')[attempts-1]);
 
         if (guess == answer || attempts == 6) {
             if (guess != answer) attempts++;

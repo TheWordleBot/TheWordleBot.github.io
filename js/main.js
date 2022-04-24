@@ -16,6 +16,8 @@ const NOT_YET_TESTED = .999, SIZE_FACTOR = 5;
 function setBotMode(type) {
     bot = new Bot(type);
     document.getElementById('bot-type').value = type;
+
+    pairings = [];
 }
 
 function setLength() {
@@ -35,11 +37,6 @@ function setWordbank() {
     wordbank = document.getElementById("wordbank").value;
 
     if (wordbank == 'restricted') {
-        // if (word_length == 5) {
-        //     common = common_words.filter(a => a.game == 'official' || a.game == 'quordle');
-        // } else {
-        //     common = common_words.filter(a => a.game != 'unlimited');
-        // }
         common = common_words.slice();
     } else {
         common = all_common_words.slice();
@@ -341,20 +338,10 @@ function makeTables(val, c) {
     if (!words.includes(val)) return;
 
     if (val) {
-        // let row = document.createElement('div');
-        // row.setAttribute('class', 'row ' + c);
-
-        // for (let i = 0; i < word_length; i++) {
-        //     row.innerHTML += "<button class = 'B tile " + bot.type + "'>" + val[i] + "</button>";
-        // }
-        
         let row = createRow(val, c);
 
-        if (bot.isFor('Woodle')) row.innerHTML += TRACKER_BUTTONS;
         document.getElementById("grid").append(row);
-        
-        // setClickEvents();
-        bot.setChangeEvents();
+        bot.setChangeEvents(row);
     }
 
     if (numberOfGuessesSoFar(1) && c == 'normal') {
@@ -371,8 +358,9 @@ function createRow(word, mode) {
         text += "<button class = 'B tile " + bot.type + "'>" + word[i] + "</button>";
     }
 
-    row.innerHTML = text;
+    if (bot.isFor('Woodle')) text += TRACKER_BUTTONS;
 
+    row.innerHTML = text;
     return row;
 }
 
@@ -428,7 +416,7 @@ function guessesArePrecomputed(difficulty) {
         word += getWord(i);
     }
 
-    let hash = makeHash(wordbank, difficulty, diff);
+    let hash = makeHash(bot.type, wordbank, difficulty, diff);
 
     if (seconds[word] != null) {
         if (seconds[word][hash] != null) {
@@ -439,8 +427,8 @@ function guessesArePrecomputed(difficulty) {
     return 0;
 }
 
-function makeHash(list_type, difficulty, string) {
-    return list_type + "/" + difficulty + "/" + string;
+function makeHash(game, list_type, difficulty, string) {
+    return game + "/" + list_type + "/" + difficulty + "/" + string;
 }
 
 function setBestGuesses(best_guesses, difficulty) {
@@ -451,7 +439,7 @@ function setBestGuesses(best_guesses, difficulty) {
         word += getWord(i);
     }
 
-    let hash = makeHash(wordbank, difficulty, diff);
+    let hash = makeHash(bot.type, wordbank, difficulty, diff);
 
     seconds[word][hash] = JSON.stringify(best_guesses.slice(0, TOP_TEN_LENGTH));
 }

@@ -16,11 +16,11 @@ class Bot {
         return 6;
     }
 
-    setChangeEvents() {
+    setChangeEvents(row) {
         if (this.type == 'Woodle') {
-            woodleDropdown();
+            woodleDropdown(row);
         } else {
-            tilesChangeColor();
+            tilesChangeColor(row);
         }
     }
 
@@ -42,18 +42,18 @@ class Bot {
         }
     }
 
-    setRowColor(difference, row_number) {
+    setRowColor(difference, row) {
         if (this.type == 'Woodle') {
-            return setRowDifferencesWithoutPositions(difference, row_number);
+            return setRowDifferencesWithoutPositions(difference, row);
         } else {
-            return setRowDifferencesWithPositions(difference, row_number);
+            return setRowDifferencesWithPositions(difference, row);
         }
     }
 }
 
 // Wordle Specific Functions
-function tilesChangeColor() {
-    let tiles = document.getElementsByClassName('tile');
+function tilesChangeColor(row) {
+    let tiles = row.getElementsByClassName('tile');
 
     Array.from(tiles).forEach(function(t) {
       t.addEventListener('click', function() {
@@ -140,7 +140,7 @@ function rowDifferencesWithPositions(row_number) {
 }
 
 function setRowDifferencesWithPositions(coloring, row) {
-    let tiles = document.getElementsByClassName('row')[row].getElementsByClassName('tile');
+    let tiles = row.getElementsByClassName('tile');
 
     for (let i = 0; i < word_length; i++) {
         tiles[i].classList.replace(INCORRECT, coloring[i]);
@@ -154,8 +154,8 @@ const TRACKER_BUTTONS = `<div class = 'tracker'>
                         </div>`
 
 
-function woodleDropdown() {
-    let selector = document.getElementsByClassName('woodle-count');
+function woodleDropdown(row) {
+    let selector = row.getElementsByClassName('woodle-count');
     for (let i = 0; i < selector.length; i++) {
         if (selector[i].getElementsByTagName('option').length) {
             continue;
@@ -225,11 +225,14 @@ function differencesWithoutPositions(word1, word2) {
 }
 
 function setRowDifferencesWithoutPositions(coloring, row) {
-    let num_correct = document.getElementsByClassName('woodle-count ' + CORRECT)[row];
-    let num_wrong_spots = document.getElementsByClassName('woodle-count ' + WRONG_SPOT)[row];
+    let selectors = row.getElementsByClassName('tracker')[0];
+    let num_correct = selectors.getElementsByClassName('woodle-count ' + CORRECT)[0];
+    let num_wrong_spots = selectors.getElementsByClassName('woodle-count ' + WRONG_SPOT)[0];
 
-    num_correct.value = count(coloring, CORRECT);
-    num_wrong_spots.value = count(coloring, WRONG_SPOT);
+    let correct = count(coloring, CORRECT);
+    let wrong_spots = count(coloring, WRONG_SPOT);
+    num_correct.innerHTML = "<option value='" + correct + "'>" + correct + "</option>";
+    num_wrong_spots.innerHTML = "<option value='" + wrong_spots + "'>" + wrong_spots + "</option>";
 }
 
 // Specific Functions

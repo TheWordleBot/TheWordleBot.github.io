@@ -106,49 +106,110 @@ function createWordLengthSelector() {
     }
 }
 
-function createInfoPage() {
-    let info = document.getElementsByClassName('info screen')[0];
-    let example_row = createRow('CRUST', 'dummy');
-    example_row.getElementsByClassName('tile')[3].classList.replace(INCORRECT, WRONG_SPOT);
-    example_row.getElementsByClassName('tile')[4].classList.replace(INCORRECT, CORRECT);
+const EXAMPLE_LIST = 
+{
+    "Wordle": [
+        {word: 'BLOKE', score: '2.188 guesses left', wrong: '96.77% solve rate'}, 
+        {word: 'YOLKS', score: '2.250 guesses left'}, 
+        {word: 'KOELS', score: '2.250 guesses left'},
+        {word: 'KYLOE', score: '2.250 guesses left'}
+    ], 
+    "Woodle": [
+        {word: 'LEAST', score: '3.652 guesses left', wrong: '96.77% solve rate'}, 
+        {word: 'STALE', score: '3.661 guesses left'}, 
+        {word: 'SPATE', score: '3.665 guesses left'},
+        {word: 'BEARD', score: '3.674 guesses left'}
+    ], 
+    "W-Peaks": [
+        {word: 'THREE', score: '2.111 guesses left', wrong: '96.77% solve rate'}, 
+        {word: 'TIRED', score: '2.222 guesses left'}, 
+        {word: 'TOPEE', score: '2.222 guesses left'},
+        {word: 'TOPEK', score: '2.222 guesses left'}
+    ],     
+} 
 
+
+function createExample() {
+    let example_row = createRow('TRAIN', 'dummy');
+    bot.setRowColor('GBYBB', example_row);
 
     let example_list = document.createElement('ul');
-    example_list.setAttribute('class', 'word-list');
+    example_list.setAttribute('class', 'word-list dummy');
     
-    example_list.innerHTML = createListItem('ALEPH', '2.290 guesses left', 1) + 
-    createListItem('PLENA', '2.323 guesses left', 2) + 
-    createListItem('PHIAL', '2.323 guesses left', 3) +
-    createListItem('SPALE', '2.323 guesses left', 4);
-    
+    for (let i = 0; i < EXAMPLE_LIST[bot.type].length; i++) {
+        example_list.innerHTML += createListItem(EXAMPLE_LIST[bot.type][i].word, EXAMPLE_LIST[bot.type][i].score, i+1);
+    }
+
+    return {row: example_row, list: example_list};
+}
+
+function createWrongExample() {
     let example_wrong = document.createElement('ul');
     example_wrong.setAttribute('class', 'word-list dummy');
-    example_wrong.innerHTML = createListItem('ALEPH', '96.77% solve rate', 1)
+    example_wrong.innerHTML = createListItem(EXAMPLE_LIST[bot.type][0].word, EXAMPLE_LIST[bot.type][0].wrong, 1);
 
-    info.innerHTML = 
-        `<button class="info close"></button>
-        <h3 class="top-header">How does this work?</h3>
-        <p>Simply enter in your last guess, click on the tiles until the colors match, hit calculate, 
-            and the WordleBot will give you sthe best possible guesses from that point.</p>
-        <h3 class = 'mini'>After each guess you should see something like this:</h3><div class = 'examples'>` + example_row.outerHTML + example_list.outerHTML + 
+    return example_wrong;
+}
 
-        `</div><p>
-        This means the best guess from this point would be ALEPH,
-        and that you have an average of 2.290 guesses left. If you see:
-        </p>`
-        + example_wrong.outerHTML + 
-        `<p>That means ALEPH will only solve 96.77% of the remaining possible answers within 6 guesses.
-        Generally speaking, you should only see this if you're playing on hard mode.</p>`
-        +
-        `<p>
-        Want to see how good your starting word is? Click the <button class = 'test dummy' disabled><i class="gg-bot"></i></button> on the top right to get a good idea.
-        </p>`
-    
+function makeCloseButton(type) {
+    let close_button = document.createElement('button');
+    close_button.setAttribute('class', type + ' close');
+
+    return close_button;
+}
+
+function createInfoParagraphs() {
+    let p1 = document.createElement('p');
+    p1.innerHTML = `Simply enter in your last guess, click on the tiles until the colors match, hit calculate, 
+                    and the WordleBot will give you sthe best possible guesses from that point.`
+
+    let p2 = document.createElement('p');
+    p2.innerHTML = `This means the best guess from this point would be ` + EXAMPLE_LIST[bot.type][0].word + `,
+                    and that you have an average of ` + EXAMPLE_LIST[bot.type][0].score + `. If you see:`
+
+    let p3 = document.createElement('p');
+    p3.innerHTML = `That means ` + EXAMPLE_LIST[bot.type][0].word + ` will only solve 96.77% of the remaining possible answers within ` + bot.guessesAllowed() + ` guesses.
+                    Generally speaking, you should only see this if you're playing on hard mode.`
+
+    let p4 = document.createElement('p');
+    p4.innerHTML = `Want to see how good your starting word is? Click the 
+                    <button class = 'test dummy' disabled><i class="gg-bot"></i></button> on the top right to get a good idea.`
+
+    return [p1, p2, p3, p4]
+}
+
+function createInfoPage() {
+    let info = document.getElementsByClassName('info screen')[0];
+    if (info.classList.contains('display')) return;
+
+    let close_button = makeCloseButton('info');
+    let example = createExample();
+    let example_wrong = createWrongExample();
+    let paragraphs = createInfoParagraphs();
+
+    let main_header = document.createElement('h3');
+    main_header.setAttribute('class' , 'top-header');
+    main_header.innerHTML = 'How does this Work?';
+
+    let sub_header = document.createElement('h3');
+    sub_header.setAttribute('class', 'mini');
+    sub_header.innerHTML = 'After each guess you should see something like this:'
+
+    info.append(close_button);   // button to close screen
+    info.append(main_header);    // 'how does this work' 
+    info.append(paragraphs[0]);  // intro paragraph
+    info.append(sub_header);     // header to examples
+    info.append(example.row);    // example row w/ colors
+    info.append(example.list);   // example answer list 
+    info.append(paragraphs[1]);  // explanation of answer list
+    info.append(example_wrong);  // example answer list with wrong %
+    info.append(paragraphs[2]);  // explanation of wrong %
+    info.append(paragraphs[3]);  // bot paragraph
+
     info.classList.remove('hide');
     info.classList.add('display');
 
-    let close = info.getElementsByClassName('close')[0];
-    close.addEventListener('click', function() {
+    close_button.addEventListener('click', function() {
         info.classList.remove("display");
         info.classList.add("hide");
         info.innerHTML = "";
