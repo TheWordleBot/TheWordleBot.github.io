@@ -206,12 +206,12 @@ function createInfoPage() {
     info.append(paragraphs[2]);  // explanation of wrong %
     info.append(paragraphs[3]);  // bot paragraph
 
-    info.classList.remove('hide');
+    info.classList.remove('back');
     info.classList.add('display');
 
     close_button.addEventListener('click', function() {
         info.classList.remove("display");
-        info.classList.add("hide");
+        info.classList.add("back");
         info.innerHTML = "";
     });
 }

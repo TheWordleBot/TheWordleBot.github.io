@@ -88,6 +88,7 @@ body {
     border-radius: 0;
     border: none;
     height: 100%;
+    padding: 0;
 }
 
 .row.normal > .tile {
@@ -317,14 +318,6 @@ button:hover, .tile:hover, .increment:hover {
     border-bottom: solid 1px black;
 }
 
-.pictures {
-    margin-top: .5rem;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .hide {
     animation: hide .4s forwards;
 }
@@ -477,6 +470,7 @@ h3.mini-title {
 .back {
     z-index: -1;
     color: transparent;
+    background: transparent;
     position: absolute;
     height: 0;
     width: 0;
@@ -517,7 +511,7 @@ ul {
     margin-bottom: 0;
 }
 
-ul:not(.best-letters) li:not(.others) {
+ul li:not(.others) {
     max-width: 100%;
     min-height: 2rem;
     flex: 1;
@@ -706,60 +700,6 @@ input[type=checkbox] {
 #wrongs {
     font-size: 1rem;
     margin: 1rem;
-}
-
-
-/* BEST LETTERS */
-/* ALL DIVS FOR INFO BY LETTER */
-#letters-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: min(630px, 100%);
-}
-
-#letter-info h2 {
-    text-align: center;
-    margin: 0.75rem;
-    font-variant-caps: small-caps;
-}
-
-.best-letters {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    row-gap: .25rem;
-    column-gap: .25rem;
-    margin: .5rem;
-}
-
-.best-letters li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.letter-ranking {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    aspect-ratio: 1;
-    height: 4rem;
-    color: var(--off-white);
-    background: var(--correct-color);
-}
-
-.letter {
-    font-weight: bold;
-    font-size: 1.75rem;
-}
-
-.frequency {
-    font-size: .9rem;
-    font-style: italic;
 }
 
 /* sliders */
