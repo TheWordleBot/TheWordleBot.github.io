@@ -1,4 +1,5 @@
 var word_length = 5;
+var wordbank = 'restricted';
 var pairings = [];
 var seconds = {};
 
@@ -15,7 +16,16 @@ const NOT_YET_TESTED = .999, SIZE_FACTOR = 5;
 
 function setBotMode(type) {
     bot = new Bot(type);
-    document.getElementById('bot-type').value = type;
+    // document.getElementById('bot-type').value = type;
+
+    let bots = document.getElementsByClassName('bot-type');
+
+    for (let i = 0; i < bots.length; i++) {
+        if (bots[i].id == type) {
+            bots[i].checked = true;
+            break;
+        }
+    }
 
     pairings = [];
 }
@@ -34,7 +44,15 @@ function setLength() {
 }
 
 function setWordbank() {
-    wordbank = document.getElementById("wordbank").value;
+    // wordbank = document.getElementById("wordbank").value;
+    let banks = document.getElementsByClassName('wordbank');
+
+    for (let i = 0; i < banks.length; i++) {
+        if (banks[i].checked == true) {
+            wordbank = banks[i].id;
+            break;
+        }
+    }
 
     if (wordbank == 'restricted') {
         common = common_words.slice();

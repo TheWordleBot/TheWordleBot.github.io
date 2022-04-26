@@ -82,6 +82,7 @@ body {
 
 .tile {
     /* flex: 1 1 0px; */
+    position: relative;
     flex: 1;
     font-size: 1.5rem;
     font-weight: bold;
@@ -830,6 +831,6 @@ input:checked + .slider:before {
     margin-top: 0;
 }
 
-a {
+.links a {
     color: #76bfff;
 }

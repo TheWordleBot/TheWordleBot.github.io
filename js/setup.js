@@ -2,9 +2,18 @@ $(document).ready(function() {
     getPreferences();
     createPage();
 
-    $("#bot-type").change(function() {
-        let val = $(this).val();
+    $(".bot-type").change(function() {
+        if (!$(this).is(':checked')) {
+            $(this).prop('checked', true);
+            return;
+        }
+
+        let val = $(this).attr('id');
         localStorage.setItem('bot_type', val);
+
+        $('.bot-type').not('#'+val).removeAttr('checked');
+        // let val = $(this).val();
+        // localStorage.setItem('bot_type', val);
         setBotMode(val);
         createPage();
     });
@@ -14,8 +23,14 @@ $(document).ready(function() {
         createPage();
     });
 
-    $("#wordbank").on('input', function() {
-        localStorage.setItem('wordbank', $(this).val());
+    $(".wordbank").on('input', function() {
+        if (!$(this).is(':checked')) {
+            $(this).prop('checked', true);
+            return;
+        }
+
+        localStorage.setItem('wordbank', $(this).attr('id'));
+        $("#" + otherWordbank($(this).attr('id'))).prop('checked', false);
         setWordbank();
         update();
     });
@@ -64,8 +79,17 @@ function getPreferences() {
     }
 
     if (localStorage.getItem('wordbank')) {
-        document.getElementById('wordbank').value = localStorage.getItem('wordbank');
+        let bank = localStorage.getItem('wordbank');
+        document.getElementById(bank).checked = true;
+        document.getElementById(otherWordbank(bank)).checked = false;
+        setWordbank()
+        // document.getElementById('wordbank').value = localStorage.getItem('wordbank');
     }
+}
+
+function otherWordbank(bank) {
+    if (bank == 'restricted') return 'complete';
+    return 'restricted';
 }
 
 function drawPage() {
@@ -230,13 +254,11 @@ function createSettingsPage() {
 }
 
 function createGuessInput(div) {
-    let input = document.getElementsByTagName('input')[0];
+    let input = document.getElementById('word-entered');
     setInputAttributes(input);
 }
 
 function setInputAttributes(input) {
-    input.setAttribute('id', 'word-entered');
-    input.setAttribute('type', 'text');
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('placeholder', 'enter your guess here');
     input.setAttribute('onkeypress', 'return /[a-z]/i.test(event.key)');
