@@ -98,7 +98,7 @@ function update() {
         return showFinalOptions([], [])
     }
 
-    let alphabet = bestLetters(answer_list);
+    let alphabet = bot.getBestLetters(answer_list);
     let sorted_answer_list = sortList(answer_list, alphabet);
     let sorted_guess_list = sortList(words.slice(), alphabet, sorted_answer_list);
     let normal_guesses, hard_guesses;
@@ -128,13 +128,8 @@ function updateLists(words_left, likely_answers, unlikely_answers, normal_guesse
     let list_length = Math.min(likely_answers.length, TOP_TEN_LENGTH);
     let normal_list = hard_list = "";
 
-    if (normal_guesses) {
-        normal_list = writeBestGuessList(normal_guesses, list_length, NORMAL);
-    }
-    
-    if (hard_guesses) {
-        hard_list = writeBestGuessList(hard_guesses, list_length, HARD);
-    }
+    if (normal_guesses) normal_list = writeBestGuessList(normal_guesses, list_length, NORMAL);
+    if (hard_guesses) hard_list = writeBestGuessList(hard_guesses, list_length, HARD);
 
     updateHeaders(words_left, likely_answers, unlikely_answers);
     addToSlides("Your best possible guesses are:", normal_list, hard_list)
@@ -146,11 +141,6 @@ function updateLists(words_left, likely_answers, unlikely_answers, normal_guesse
         return showFinalOptions(likely_answers, unlikely_answers);
     } 
 }
-
-function hasntBeenTested() {
-
-}
-
 
 // changes the percentage underneath each of the letters in the 
 // 'MOST COMMON LETTERS' section
@@ -201,8 +191,6 @@ function writeBestGuessList(guesses, list_length) {
         let num_wrong = ((1-guesses[i].wrong)*100).toFixed(2);
 
         if (guesses[i].wrong > 0 && guesses[i].wrong != NOT_YET_TESTED) {
-            // data = num_guesses + " guesses, "
-            // + num_wrong + "% solve rate";
             data = num_wrong + "% solve rate";
         } else if (guesses[i].wrong == NOT_YET_TESTED) {
             data = "not yet tested ";
@@ -254,6 +242,14 @@ function createAnswerDropdown(likely_answers, unlikely_answers) {
         unlikely_list += unlikely_answers[i] + "<br>";
     }
     technically_words.innerHTML = "<p>" + unlikely_list + "</p>";
+
+    if (likely_answers.length < 1) {
+        potential_answers.innerHTML = "";
+    }
+
+    if (unlikely_answers.length < 1) {
+        technically_words.innerHTML = "";
+    }
 }
 
 function noWordsLeftMessage() {
@@ -469,7 +465,7 @@ function getBestGuesses(answer_list, guess_list, difficulty) {
         return twoSort(best_guesses);
     }
 
-    if (numberOfGuessesSoFar(0)) return twoSort(getFirstGuesses(difficulty));
+    if (numberOfGuessesSoFar(0)) return getFirstGuesses(difficulty);
 
     if (!isDifficulty(HARD, difficulty)) {
         guess_list = getWordsToCheck(answer_list, guess_list);
@@ -498,7 +494,7 @@ function reduceListSize(guesses, answers) {
 // remove words that have letters already grayed out
 // remove words that have yellow letters in the wrong spot
 function removeUselessGuesses(list, possibilities) {
-    let alphabet = bestLetters(possibilities);
+    let alphabet = bot.getBestLetters(possibilities);
 
     for (let i = 0; i < list.length; i++) {
         for (let j = 0; j < word_length; j++) {
@@ -523,7 +519,40 @@ function getFirstGuesses(difficulty) {
     }
 
     first_guesses = getBestOf(first_guesses).filter(a => a.word.length == word_length);
-    return first_guesses;
+
+    if (!first_guesses.length) {
+        first_guesses = getTempList();
+    }
+
+    return twoSort(first_guesses);
+}
+
+function getTempList() {
+    // let letters = [];
+    let guesses = words.slice();
+
+    // if (bot.type != 'W-Peaks') {
+    //     letters = bestLetters(common);
+    //     guesses = sortList(words.slice(), letters);
+    // } else {
+    //     for (let c = 65; c <= 90; c++) {
+    //         let char = String.fromCharCode(c);
+    //         let val = 1/Math.abs(c - (90+65)/2);
+
+    //         letters[char] = [];
+    //         for (let i = 0; i < word_length+1; i++) {
+    //             letters[char].push(val);
+    //         }
+    //     }
+        
+    //     guesses = sortList(words.slice(), letters);
+    // }
+    let letters = bot.getBestLetters(common.slice());
+    guesses = sortList(words.slice(), letters);
+    
+    guesses = reducesListMost(common.slice(), guesses.slice(0, 75));
+    guesses = guesses.map(a => Object.assign ({}, {word: a.word, average: a.adjusted, wrong: NOT_YET_TESTED}));
+    return guesses;
 }
 
 function getWordsToCheck(answers, guesses) {
@@ -560,25 +589,6 @@ function calculateGuessList(answers, guesses, best_words, difficulty) {
     }
     twoSort(best_words);
     return best_words.map(a => Object.assign({}, {word: a.word, average: a.average, wrong: a.wrong})).slice(0, TOP_TEN_LENGTH);
-}
-
-function createLetterTiles(word, coloring) {
-    let board = document.getElementsByClassName("tile");
-    let letters = [];
-
-    for (let i = 0; i < board.length; i++) {
-        letters.push(board[i]);
-    }
-
-    for (let i = 0; i < word.length; i++) {
-        let tile = document.createElement("button");
-        tile.classList.add(coloring.charAt(i));
-        tile.innerHTML = word.charAt(i);
-
-        letters.push(tile);
-    }
-
-    return letters;
 }
 
 function countResults(best, answers, guesses, results, attempt, difficulty, differences) {
@@ -778,36 +788,36 @@ function sortListByAverage(list) {
     return list.sort((a, b) => (a.average <= b.average) ? 1 : -1);
 }
 
-// calculates which letters appear most often throughout the remaining answers
-// used to rough sort the list if the entire list is too large to check
-// info is also prited underneath 'Most Common Letters' section
-function bestLetters(list) {
-    if (!list.length) return [];
+// // calculates which letters appear most often throughout the remaining answers
+// // used to rough sort the list if the entire list is too large to check
+// // info is also prited underneath 'Most Common Letters' section
+// function bestLetters(list) {
+//     if (!list.length) return [];
 
-    let alphabet = [];
+//     let alphabet = [];
 
-    for (let c = 65; c <= 90; c++) {
-        alphabet[String.fromCharCode(c)] = [];
-        for (let i = 0; i < word_length+1; i++) {
-            alphabet[String.fromCharCode(c)].push(0);
-        }
-    }
+//     for (let c = 65; c <= 90; c++) {
+//         alphabet[String.fromCharCode(c)] = [];
+//         for (let i = 0; i < parseInt(word_length)+1; i++) {
+//             alphabet[String.fromCharCode(c)].push(0);
+//         }
+//     }
 
-    let checked;
+//     let checked;
 
-    for (let i = 0; i < list.length; i++) {
-        checked = [];
-        for (let j = 0; j < word_length; j++) {
-            c = list[i].charAt(j);
+//     for (let i = 0; i < list.length; i++) {
+//         checked = [];
+//         for (let j = 0; j < word_length; j++) {
+//             c = list[i].charAt(j);
 
-            alphabet[c][j]++;
+//             alphabet[c][j]++;
 
-            if (checked[c] != true) alphabet[c][word_length]++;  // only counts letters once per word
-            checked[c] = true;
-        }
-    }
-    return alphabet;
-}
+//             if (checked[c] != true) alphabet[c][word_length]++;  // only counts letters once per word
+//             checked[c] = true;
+//         }
+//     }
+//     return alphabet;
+// }
 
 function twoSort(guesses) {
     guesses.sort(function(a,b) {

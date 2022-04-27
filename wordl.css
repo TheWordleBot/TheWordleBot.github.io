@@ -306,6 +306,10 @@ button:hover, .tile:hover, .increment:hover {
     color: var(--incorrect-color);
 }
 
+.info .description {
+    width: 85%;
+}
+
 .top-header {
     text-align: center;
     margin-top: 1rem;
@@ -833,4 +837,13 @@ input:checked + .slider:before {
 
 .links a {
     color: #76bfff;
+}
+
+.substitutes {
+    margin-bottom: 1rem;
+}
+
+.substitutes .suggestion {
+    position: relative;
+    left: unset;
 }

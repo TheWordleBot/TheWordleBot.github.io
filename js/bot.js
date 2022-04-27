@@ -12,14 +12,18 @@ function reduceTestList(list) {
 }
 
 function getStartingWords(difficulty) {
-    return reducesListMost(common.slice(), words.slice()).map(a => a.word);
-    // let testing_words;
+    let starting_words;
+    if (isDifficulty(HARD, difficulty) && bot.hasHardMode()) {
+        starting_words = hard; 
+    } else {
+        starting_words = easy;
+    }
 
-    // testing_words = easy;
-    // testing_words = testing_words['WORDLE'];
-    // testing_words = testing_words.filter(a => a[wordbank]);
+    starting_words = starting_words[bot.type];
+    starting_words = starting_words.map(a => a.word).filter(a => a.length == word_length);
 
-    // return testing_words.sort((a, b) => a[wordbank].average >= b[wordbank].average ? 1 : -1).map(a => a.word).filter(a => a.length == word_length);
+    console.log(starting_words);
+    return starting_words;
 }
 
 function testStartingWords() {
@@ -30,7 +34,6 @@ function testStartingWords() {
     // difficulty = NORMAL;
     
     let check_list = getStartingWords(difficulty);
-    console.log(check_list);
 
     const diff = INCORRECT.repeat(word_length);
     const hash_key = diff + "-" + wordbank + "-" + difficulty;
@@ -128,14 +131,12 @@ function createBotMenu() {
     let menu = document.createElement("div");
     menu.setAttribute("id", "test-settings");
 
-    let hard = "<div class = 'disclaimer'>For the time being, the " + bot.type + "Bot will test your word on hard mode for efficiency purposes.</div>"
-    // let hard = "<div><input type='checkbox' id='hard-mode' name='hard-mode'>";
-    // hard += "<label for='hard-mode'>Bot plays hard mode</label></div>";
+    let hard = "<div class = 'disclaimer'>If the bot starts out slow, don't worry. It will get increasingly faster as it plays more games.</div>";
     let submit_button = "<button class = 'bot'>Start WordleBot</button>";
     let input = "<input type = 'text' id = 'testword' placeholder='your starting word'"
                 + "input onkeypress = 'return /[a-z]/i.test(event.key)' oninput= 'this.value = this.value.toUpperCase()'>"
 
-    let info = "<div class = 'info'> The " + bot.type + "Bot will test " + input + " against " + TEST_SIZE + " randomly selected answers.</div>";
+    let info = "<div class = 'info'> The " + bot.type + "Bot will test " + input + " against " + TEST_SIZE + " randomly selected answers on hard mode.</div>";
     menu.innerHTML = info + hard + submit_button;
 
     return menu;
@@ -156,8 +157,8 @@ function swapDiv(event, elem) {
 }
 
 function setupTest(word, difficulty) {
-    // TEST_SIZE = 1000;
-    TEST_SIZE = common.length;
+    TEST_SIZE = 500;
+    // TEST_SIZE = common.length;
 
     let test_center = createBarGraphs();
     let menu = createBotMenu(word);
@@ -298,7 +299,7 @@ function updateWordData(guess, average, wrong, difficulty) {
     averages.push({word: guess, average: average, wrong: wrong});
     averages.sort((a, b) => a.average >= b.average ? 1 : -1);
 
-    let index = getBestOf(newlist).map(a => a.word).indexOf(guess);
+    let index = newlist[bot.type].map(a => a.word).indexOf(guess);
     let data = {average: average, wrong: wrong};
 
     if (index == -1) {

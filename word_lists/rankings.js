@@ -3344,196 +3344,196 @@ const easy =
         {
             "word": "MILL",
             "restricted": {
-                "average": 3.473415567843471,
+                "average": 3.500641299700727,
                 "wrong": 0
             }
         },
         {
             "word": "LINN",
             "restricted": {
-                "average": 3.47809442790302,
+                "average": 3.484395040615648,
                 "wrong": 0
             }
         },
         {
             "word": "MILK",
             "restricted": {
-                "average": 3.4785197788175246,
+                "average": 3.4950833689610943,
                 "wrong": 0
             }
         },
         {
             "word": "LINK",
             "restricted": {
-                "average": 3.479795831561038,
+                "average": 3.4873877725523728,
                 "wrong": 0
             }
         },
         {
             "word": "MINK",
             "restricted": {
-                "average": 3.4883028498511273,
+                "average": 3.4985036340316373,
                 "wrong": 0
             }
         },
         {
             "word": "HILL",
             "restricted": {
-                "average": 3.4883028498511273,
+                "average": 3.5168875587858057,
                 "wrong": 0
             }
         },
         {
             "word": "LOLL",
             "restricted": {
-                "average": 3.480646533390047,
+                "average": 3.4989311671654555,
                 "wrong": 0
             }
         },
         {
             "word": "KILL",
             "restricted": {
-                "average": 3.493407060825181,
+                "average": 3.5322787516032492,
                 "wrong": 0
             }
         },
         {
             "word": "MOLL",
             "restricted": {
-                "average": 3.4827732879625692,
+                "average": 3.5027789653698163,
                 "wrong": 0
             }
         },
         {
             "word": "LILO",
             "restricted": {
-                "average": 3.4874521480221183,
+                "average": 3.5083368961094483,
                 "wrong": 0
             }
         },
         {
             "word": "KILN",
             "restricted": {
-                "average": 3.501063377286261,
+                "average": 3.5267208208636167,
                 "wrong": 0
             }
         },
         {
             "word": "LIMN",
             "restricted": {
-                "average": 3.4921310080816674,
+                "average": 3.4920906370243694,
                 "wrong": 0
             }
         },
         {
             "word": "PILL",
             "restricted": {
-                "average": 3.5006380263717567,
+                "average": 3.523728088926892,
                 "wrong": 0
             }
         },
         {
             "word": "JILL",
             "restricted": {
-                "average": 3.5040408336877924,
+                "average": 3.5267208208636167,
                 "wrong": 0
             }
         },
         {
             "word": "NILL",
             "restricted": {
-                "average": 3.5087196937473415,
+                "average": 3.5292860196665243,
                 "wrong": 0
             }
         },
         {
             "word": "KINK",
             "restricted": {
-                "average": 3.5095703955763504,
+                "average": 3.5292860196665243,
                 "wrong": 0
             }
         },
         {
             "word": "LINO",
             "restricted": {
-                "average": 3.5002126754572522,
+                "average": 3.5061992304403593,
                 "wrong": 0
             }
         },
         {
             "word": "JINN",
             "restricted": {
-                "average": 3.5180774138664397,
+                "average": 3.5185976913210775,
                 "wrong": 0
             }
         },
         {
             "word": "MILO",
             "restricted": {
-                "average": 3.495533815397703,
+                "average": 3.5117571611799914,
                 "wrong": 0
             }
         },
         {
             "word": "JINK",
             "restricted": {
-                "average": 3.5159506592939174,
+                "average": 3.5220179563916205,
                 "wrong": 0
             }
         },
         {
             "word": "MONK",
             "restricted": {
-                "average": 3.495533815397703,
+                "average": 3.499786233433091,
                 "wrong": 0
             }
         },
         {
             "word": "LION",
             "restricted": {
-                "average": 3.5002126754572522,
+                "average": 3.5079093629756306,
                 "wrong": 0
             }
         },
         {
             "word": "GILL",
             "restricted": {
-                "average": 3.5104210974053593,
+                "average": 3.538691748610517,
                 "wrong": 0
             }
         },
         {
             "word": "PINK",
             "restricted": {
-                "average": 3.5159506592939174,
+                "average": 3.520735356990167,
                 "wrong": 0
             }
         },
         {
             "word": "GINK",
             "restricted": {
-                "average": 3.524883028498511,
+                "average": 3.528858486532706,
                 "wrong": 0
             }
         },
         {
             "word": "OINK",
             "restricted": {
-                "average": 3.5448745214802213,
+                "average": 3.5425395468148784,
                 "wrong": 0
             }
         },
         {
             "word": "MINI",
             "restricted": {
-                "average": 3.522756273925989,
+                "average": 3.5391192817443353,
                 "wrong": 0
             }
         },
         {
             "word": "HOLK",
             "restricted": {
-                "average": 3.5061675882603147,
+                "average": 3.523300555793074,
                 "wrong": 0
             }
         },
@@ -3547,84 +3547,84 @@ const easy =
         {
             "word": "POLL",
             "restricted": {
-                "average": 3.516376010208422,
+                "average": 3.532706284737067,
                 "wrong": 0
             }
         },
         {
             "word": "FILL",
             "restricted": {
-                "average": 3.5291365376435557,
+                "average": 3.5583582727661396,
                 "wrong": 0
             }
         },
         {
             "word": "KILO",
             "restricted": {
-                "average": 3.5150999574649084,
+                "average": 3.5451047456177855,
                 "wrong": 0
             }
         },
         {
             "word": "HILI",
             "restricted": {
-                "average": 3.5342407486176097,
+                "average": 3.559213339033775,
                 "wrong": 0
             }
         },
         {
             "word": "MOOL",
             "restricted": {
-                "average": 3.510846448319864,
+                "average": 3.513894826849081,
                 "wrong": 0
             }
         },
         {
             "word": "MOIL",
             "restricted": {
-                "average": 3.5214802211824754,
+                "average": 3.540401881145789,
                 "wrong": 0
             }
         },
         {
             "word": "LIMO",
             "restricted": {
-                "average": 3.510846448319864,
+                "average": 3.5126122274476272,
                 "wrong": 0
             }
         },
         {
             "word": "KINO",
             "restricted": {
-                "average": 3.530412590387069,
+                "average": 3.5451047456177855,
                 "wrong": 0
             }
         },
         {
             "word": "LINE",
             "restricted": {
-                "average": 3.542747766907699,
+                "average": 3.5553655408294143,
                 "wrong": 0
             }
         },
         {
             "word": "KONK",
             "restricted": {
-                "average": 3.5168013611229263,
+                "average": 3.536981616075246,
                 "wrong": 0
             }
         },
         {
             "word": "HONK",
             "restricted": {
-                "average": 3.509995746490855,
+                "average": 3.5168875587858057,
                 "wrong": 0
             }
         },
         {
             "word": "LING",
             "restricted": {
-                "average": 3.5350914504466187,
+                "average": 3.5425395468148784,
                 "wrong": 0
             }
         },
@@ -3638,28 +3638,28 @@ const easy =
         {
             "word": "FINK",
             "restricted": {
-                "average": 3.540195661420672,
+                "average": 3.561778537836682,
                 "wrong": 0
             }
         },
         {
             "word": "MONO",
             "restricted": {
-                "average": 3.517652062951935,
+                "average": 3.5168875587858057,
                 "wrong": 0
             }
         },
         {
             "word": "FILM",
             "restricted": {
-                "average": 3.537218205019141,
+                "average": 3.5579307396323214,
                 "wrong": 0
             }
         },
         {
             "word": "HOLM",
             "restricted": {
-                "average": 3.514674606550404,
+                "average": 3.5292860196665243,
                 "wrong": 0
             }
         },
@@ -3680,14 +3680,14 @@ const easy =
         {
             "word": "LOOK",
             "restricted": {
-                "average": 3.5040408336877924,
+                "average": 3.510474561778538,
                 "wrong": 0
             }
         },
         {
             "word": "PION",
             "restricted": {
-                "average": 3.5393449595916633,
+                "average": 3.546814878153057,
                 "wrong": 0
             }
         },
@@ -3722,7 +3722,7 @@ const easy =
         {
             "word": "LIMP",
             "restricted": {
-                "average": 3.531688643130583,
+                "average": 3.510474561778538,
                 "wrong": 0
             }
         },
@@ -3778,28 +3778,28 @@ const easy =
         {
             "word": "KOLO",
             "restricted": {
-                "average": 3.5342407486176097,
+                "average": 3.5545104745617784,
                 "wrong": 0
             }
         },
         {
             "word": "FILO",
             "restricted": {
-                "average": 3.550829434283284,
+                "average": 3.5746045318512185,
                 "wrong": 0
             }
         },
         {
             "word": "POOL",
             "restricted": {
-                "average": 3.5350914504466187,
+                "average": 3.5412569474134243,
                 "wrong": 0
             }
         },
         {
             "word": "LOOM",
             "restricted": {
-                "average": 3.5104210974053593,
+                "average": 3.5053441641727234,
                 "wrong": 0
             }
         },
@@ -3834,14 +3834,14 @@ const easy =
         {
             "word": "POLO",
             "restricted": {
-                "average": 3.5406210123351767,
+                "average": 3.5446772124839674,
                 "wrong": 0
             }
         },
         {
             "word": "MOON",
             "restricted": {
-                "average": 3.513823904721395,
+                "average": 3.5117571611799914,
                 "wrong": 0
             }
         },
@@ -3855,35 +3855,35 @@ const easy =
         {
             "word": "LOON",
             "restricted": {
-                "average": 3.5061675882603147,
+                "average": 3.5014963659683627,
                 "wrong": 0
             }
         },
         {
             "word": "LENO",
             "restricted": {
-                "average": 3.5321139940450874,
+                "average": 3.5506626763574176,
                 "wrong": 0
             }
         },
         {
             "word": "LOIN",
             "restricted": {
-                "average": 3.5197788175244575,
+                "average": 3.523728088926892,
                 "wrong": 0
             }
         },
         {
             "word": "FINO",
             "restricted": {
-                "average": 3.561037856231391,
+                "average": 3.571611799914493,
                 "wrong": 0
             }
         },
         {
             "word": "NOLO",
             "restricted": {
-                "average": 3.5423224159931945,
+                "average": 3.5476699444206927,
                 "wrong": 0
             }
         },
@@ -3939,7 +3939,7 @@ const easy =
         {
             "word": "MENO",
             "restricted": {
-                "average": 3.544449170565717,
+                "average": 3.5549380076955965,
                 "wrong": 0
             }
         },
@@ -3988,7 +3988,7 @@ const easy =
         {
             "word": "MILS",
             "restricted": {
-                "average": 3.567418119948958,
+                "average": 3.536981616075246,
                 "wrong": 0
             }
         },
@@ -4058,14 +4058,14 @@ const easy =
         {
             "word": "HOLP",
             "restricted": {
-                "average": 3.543598468736708,
+                "average": 3.5356990166737923,
                 "wrong": 0
             }
         },
         {
             "word": "LINS",
             "restricted": {
-                "average": 3.5733730327520203,
+                "average": 3.525438221462163,
                 "wrong": 0
             }
         },
@@ -4100,7 +4100,7 @@ const easy =
         {
             "word": "JIMP",
             "restricted": {
-                "average": 3.56954487452148,
+                "average": 3.5442496793501497,
                 "wrong": 0
             }
         },
@@ -4121,7 +4121,7 @@ const easy =
         {
             "word": "LIEN",
             "restricted": {
-                "average": 3.552105487026797,
+                "average": 3.559640872167593,
                 "wrong": 0
             }
         },
@@ -4135,7 +4135,7 @@ const easy =
         {
             "word": "PIMP",
             "restricted": {
-                "average": 3.5572096980008507,
+                "average": 3.536981616075246,
                 "wrong": 0
             }
         },
@@ -4170,7 +4170,7 @@ const easy =
         {
             "word": "MIEN",
             "restricted": {
-                "average": 3.5567843470863463,
+                "average": 3.5651988029072252,
                 "wrong": 0
             }
         },
@@ -4205,14 +4205,14 @@ const easy =
         {
             "word": "POON",
             "restricted": {
-                "average": 3.5423224159931945,
+                "average": 3.5344164172723387,
                 "wrong": 0
             }
         },
         {
             "word": "HOMO",
             "restricted": {
-                "average": 3.5487026797107615,
+                "average": 3.5510902094912358,
                 "wrong": 0
             }
         },
@@ -4226,7 +4226,7 @@ const easy =
         {
             "word": "POMO",
             "restricted": {
-                "average": 3.5606125053168864,
+                "average": 3.555793073963232,
                 "wrong": 0
             }
         },
@@ -4240,7 +4240,7 @@ const easy =
         {
             "word": "GIMP",
             "restricted": {
-                "average": 3.5754997873245427,
+                "average": 3.5540829414279607,
                 "wrong": 0
             }
         },
@@ -4282,7 +4282,7 @@ const easy =
         {
             "word": "HINS",
             "restricted": {
-                "average": 3.595491280306253,
+                "average": 3.5489525438221463,
                 "wrong": 0
             }
         },
@@ -4359,7 +4359,7 @@ const easy =
         {
             "word": "NILS",
             "restricted": {
-                "average": 3.596341982135262,
+                "average": 3.566908935442497,
                 "wrong": 0
             }
         },
@@ -4373,7 +4373,7 @@ const easy =
         {
             "word": "MOLS",
             "restricted": {
-                "average": 3.5733730327520203,
+                "average": 3.54211201368106,
                 "wrong": 0
             }
         },
@@ -4396,12 +4396,20 @@ const easy =
             "restricted": {
                 "average": 3.1303972366148534,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3064073226544624,
+                "wrong": 0
             }
         },
         {
             "word": "POLIO",
             "restricted": {
                 "average": 3.16839378238342,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.319908466819222,
                 "wrong": 0
             }
         },
@@ -4410,12 +4418,20 @@ const easy =
             "restricted": {
                 "average": 3.1489637305699483,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.294050343249428,
+                "wrong": 0
             }
         },
         {
             "word": "KNOLL",
             "restricted": {
                 "average": 3.1662348877374784,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.328604118993135,
                 "wrong": 0
             }
         },
@@ -4424,12 +4440,20 @@ const easy =
             "restricted": {
                 "average": 3.145077720207254,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.2935926773455377,
+                "wrong": 0
             }
         },
         {
             "word": "RONIN",
             "restricted": {
                 "average": 3.183937823834197,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3462242562929063,
                 "wrong": 0
             }
         },
@@ -4438,12 +4462,20 @@ const easy =
             "restricted": {
                 "average": 3.162348877374784,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3270022883295196,
+                "wrong": 0
             }
         },
         {
             "word": "PLONK",
             "restricted": {
                 "average": 3.139032815198618,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.314187643020595,
                 "wrong": 0
             }
         },
@@ -4452,12 +4484,20 @@ const easy =
             "restricted": {
                 "average": 3.186096718480138,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3528604118993135,
+                "wrong": 0
             }
         },
         {
             "word": "MOOLI",
             "restricted": {
                 "average": 3.162780656303972,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3180778032036615,
                 "wrong": 0
             }
         },
@@ -4466,12 +4506,20 @@ const easy =
             "restricted": {
                 "average": 3.163644214162349,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.325171624713959,
+                "wrong": 0
             }
         },
         {
             "word": "MOILS",
             "restricted": {
                 "average": 3.18566493955095,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3064073226544624,
                 "wrong": 0
             }
         },
@@ -4480,12 +4528,20 @@ const easy =
             "restricted": {
                 "average": 3.155440414507772,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.309153318077803,
+                "wrong": 0
             }
         },
         {
             "word": "KININ",
             "restricted": {
                 "average": 3.1653713298791017,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.316247139588101,
                 "wrong": 0
             }
         },
@@ -4494,12 +4550,20 @@ const easy =
             "restricted": {
                 "average": 3.1601899827288427,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.296567505720824,
+                "wrong": 0
             }
         },
         {
             "word": "LOGIN",
             "restricted": {
                 "average": 3.163644214162349,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3416475972540045,
                 "wrong": 0
             }
         },
@@ -4508,12 +4572,20 @@ const easy =
             "restricted": {
                 "average": 3.1645077720207255,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3130434782608695,
+                "wrong": 0
             }
         },
         {
             "word": "HOLON",
             "restricted": {
                 "average": 3.164075993091537,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3173913043478263,
                 "wrong": 0
             }
         },
@@ -4522,12 +4594,20 @@ const easy =
             "restricted": {
                 "average": 3.180051813471503,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3636155606407323,
+                "wrong": 0
             }
         },
         {
             "word": "GOIER",
             "restricted": {
                 "average": 3.18566493955095,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.363157894736842,
                 "wrong": 0
             }
         },
@@ -4536,12 +4616,20 @@ const easy =
             "restricted": {
                 "average": 3.1891191709844557,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3610983981693363,
+                "wrong": 0
             }
         },
         {
             "word": "IMINO",
             "restricted": {
                 "average": 3.192141623488774,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.354004576659039,
                 "wrong": 0
             }
         },
@@ -4550,12 +4638,20 @@ const easy =
             "restricted": {
                 "average": 3.1955958549222796,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3951945080091535,
+                "wrong": 0
             }
         },
         {
             "word": "ELOIN",
             "restricted": {
                 "average": 3.1731433506044904,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.360640732265446,
                 "wrong": 0
             }
         },
@@ -4564,12 +4660,20 @@ const easy =
             "restricted": {
                 "average": 3.167098445595855,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.322883295194508,
+                "wrong": 0
             }
         },
         {
             "word": "LIKIN",
             "restricted": {
                 "average": 3.1748704663212437,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3210526315789473,
                 "wrong": 0
             }
         },
@@ -4578,12 +4682,20 @@ const easy =
             "restricted": {
                 "average": 3.17573402417962,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3306636155606406,
+                "wrong": 0
             }
         },
         {
             "word": "PRILL",
             "restricted": {
                 "average": 3.1649395509499136,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.348741418764302,
                 "wrong": 0
             }
         },
@@ -4592,12 +4704,20 @@ const easy =
             "restricted": {
                 "average": 3.1718480138169256,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3375286041189933,
+                "wrong": 0
             }
         },
         {
             "word": "LOINS",
             "restricted": {
                 "average": 3.1999136442141625,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3153318077803204,
                 "wrong": 0
             }
         },
@@ -4606,12 +4726,20 @@ const easy =
             "restricted": {
                 "average": 3.1601899827288427,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.34233409610984,
+                "wrong": 0
             }
         },
         {
             "word": "MILLE",
             "restricted": {
                 "average": 3.1610535405872193,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.305949656750572,
                 "wrong": 0
             }
         },
@@ -4620,12 +4748,20 @@ const easy =
             "restricted": {
                 "average": 3.1765975820379966,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3306636155606406,
+                "wrong": 0
             }
         },
         {
             "word": "PROLL",
             "restricted": {
                 "average": 3.1774611398963732,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3549199084668193,
                 "wrong": 0
             }
         },
@@ -4634,12 +4770,20 @@ const easy =
             "restricted": {
                 "average": 3.169257340241796,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.2981693363844395,
+                "wrong": 0
             }
         },
         {
             "word": "MOOLS",
             "restricted": {
                 "average": 3.1865284974093266,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.291762013729977,
                 "wrong": 0
             }
         },
@@ -4648,12 +4792,20 @@ const easy =
             "restricted": {
                 "average": 3.1899827288428324,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3382151029748286,
+                "wrong": 0
             }
         },
         {
             "word": "MONGO",
             "restricted": {
                 "average": 3.1731433506044904,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3237986270022883,
                 "wrong": 0
             }
         },
@@ -4662,12 +4814,20 @@ const easy =
             "restricted": {
                 "average": 3.197322970639033,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3533180778032037,
+                "wrong": 0
             }
         },
         {
             "word": "PONGO",
             "restricted": {
                 "average": 3.1899827288428324,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3409610983981692,
                 "wrong": 0
             }
         },
@@ -4676,12 +4836,20 @@ const easy =
             "restricted": {
                 "average": 3.174006908462867,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3123569794050343,
+                "wrong": 0
             }
         },
         {
             "word": "NOILS",
             "restricted": {
                 "average": 3.2120034542314335,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3331807780320366,
                 "wrong": 0
             }
         },
@@ -4690,12 +4858,20 @@ const easy =
             "restricted": {
                 "average": 3.173575129533679,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.336155606407323,
+                "wrong": 0
             }
         },
         {
             "word": "FLIER",
             "restricted": {
                 "average": 3.192573402417962,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3700228832951944,
                 "wrong": 0
             }
         },
@@ -4704,12 +4880,20 @@ const easy =
             "restricted": {
                 "average": 3.2171848013816926,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3533180778032037,
+                "wrong": 0
             }
         },
         {
             "word": "LINEN",
             "restricted": {
                 "average": 3.1658031088082903,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3048054919908467,
                 "wrong": 0
             }
         },
@@ -4718,12 +4902,20 @@ const easy =
             "restricted": {
                 "average": 3.204663212435233,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.376430205949657,
+                "wrong": 0
             }
         },
         {
             "word": "NOINT",
             "restricted": {
                 "average": 3.207685664939551,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.4041189931350115,
                 "wrong": 0
             }
         },
@@ -4732,12 +4924,20 @@ const easy =
             "restricted": {
                 "average": 3.1817789291882557,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.285812356979405,
+                "wrong": 0
             }
         },
         {
             "word": "PLIMS",
             "restricted": {
                 "average": 3.2124352331606216,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.3237986270022883,
                 "wrong": 0
             }
         },
@@ -4746,12 +4946,20 @@ const easy =
             "restricted": {
                 "average": 3.1761658031088085,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3393592677345536,
+                "wrong": 0
             }
         },
         {
             "word": "NINON",
             "restricted": {
                 "average": 3.1761658031088085,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.334096109839817,
                 "wrong": 0
             }
         },
@@ -4760,6 +4968,10 @@ const easy =
             "restricted": {
                 "average": 3.2012089810017272,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.3729977116704806,
+                "wrong": 0
             }
         },
         {
@@ -4767,12 +4979,20 @@ const easy =
             "restricted": {
                 "average": 3.1649395509499136,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.363157894736842,
+                "wrong": 0
             }
         },
         {
             "word": "POLIS",
             "restricted": {
                 "average": 3.202504317789292,
+                "wrong": 0
+            },
+            "complete": {
+                "average": 3.324942791762014,
                 "wrong": 0
             }
         },
@@ -5090,6 +5310,342 @@ const easy =
                 "average": 3.1899827288428324,
                 "wrong": 0
             }
+        },
+        {
+            "word": "MONS",
+            "restricted": {
+                "average": 3.536981616075246,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "PINS",
+            "restricted": {
+                "average": 3.549380076955964,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "JINS",
+            "restricted": {
+                "average": 3.5579307396323214,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "KINS",
+            "restricted": {
+                "average": 3.566053869174861,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "HIMS",
+            "restricted": {
+                "average": 3.560068405301411,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "GINS",
+            "restricted": {
+                "average": 3.5647712697734075,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "OILS",
+            "restricted": {
+                "average": 3.576742197520308,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "MOMS",
+            "restricted": {
+                "average": 3.5549380076955965,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "POLS",
+            "restricted": {
+                "average": 3.5686190679777683,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "PONS",
+            "restricted": {
+                "average": 3.5604959384352286,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "NIMS",
+            "restricted": {
+                "average": 3.5737494655835826,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "HOLS",
+            "restricted": {
+                "average": 3.566053869174861,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "HONS",
+            "restricted": {
+                "average": 3.559640872167593,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "FILS",
+            "restricted": {
+                "average": 3.592133390337751,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "FINS",
+            "restricted": {
+                "average": 3.5882855921333903,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "POMS",
+            "restricted": {
+                "average": 3.579307396323215,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "IONS",
+            "restricted": {
+                "average": 3.584010260795212,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "LENS",
+            "restricted": {
+                "average": 3.562633604104318,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "LOOS",
+            "restricted": {
+                "average": 3.5583582727661396,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "MOOS",
+            "restricted": {
+                "average": 3.5647712697734075,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "RINS",
+            "restricted": {
+                "average": 3.592560923471569,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "NOMS",
+            "restricted": {
+                "average": 3.5852928601966654,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "LOOP",
+            "restricted": {
+                "average": 3.530568619067978,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "LIES",
+            "restricted": {
+                "average": 3.6002565198802907,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "MIGS",
+            "restricted": {
+                "average": 3.589568191534844,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "MELS",
+            "restricted": {
+                "average": 3.57631466438649,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "POMP",
+            "restricted": {
+                "average": 3.5489525438221463,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "LIPS",
+            "restricted": {
+                "average": 3.5775972637879434,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "ILLS",
+            "restricted": {
+                "average": 3.585720393330483,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "RIMS",
+            "restricted": {
+                "average": 3.5981188542112013,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "POIS",
+            "restricted": {
+                "average": 3.607097050021377,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "KOIS",
+            "restricted": {
+                "average": 3.609662248824284,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "SINS",
+            "restricted": {
+                "average": 3.622060709705002,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "MIRS",
+            "restricted": {
+                "average": 3.5887131252672084,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "MIPS",
+            "restricted": {
+                "average": 3.589140658401026,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "HENS",
+            "restricted": {
+                "average": 3.5852928601966654,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "POOS",
+            "restricted": {
+                "average": 3.589568191534844,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "FONS",
+            "restricted": {
+                "average": 3.601966652415562,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "MOOR",
+            "restricted": {
+                "average": 3.559213339033775,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "HIES",
+            "restricted": {
+                "average": 3.6280461735784524,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "PENS",
+            "restricted": {
+                "average": 3.5908507909362974,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "MEMS",
+            "restricted": {
+                "average": 3.592133390337751,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "LOGS",
+            "restricted": {
+                "average": 3.5912783240701156,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "DINS",
+            "restricted": {
+                "average": 3.636169303120992,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "MOGS",
+            "restricted": {
+                "average": 3.5981188542112013,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "SOLS",
+            "restricted": {
+                "average": 3.643437366395896,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "ROMS",
+            "restricted": {
+                "average": 3.618640444634459,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "KENS",
+            "restricted": {
+                "average": 3.606241983753741,
+                "wrong": 0
+            }
         }
     ]
 }
@@ -5138,6 +5694,10 @@ const hard =
             "restricted": {
                 "average": 2.2964923891462607,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.8906178489702516,
+                "wrong": 0.005034324942791762
             }
         },
         {
@@ -5159,6 +5719,10 @@ const hard =
             "restricted": {
                 "average": 2.302448709463931,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.8638443935926774,
+                "wrong": 0.004118993135011442
             }
         },
         {
@@ -5166,6 +5730,10 @@ const hard =
             "restricted": {
                 "average": 2.302448709463931,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.8482837528604117,
+                "wrong": 0.009839816933638444
             }
         },
         {
@@ -5180,6 +5748,10 @@ const hard =
             "restricted": {
                 "average": 2.3077432164129714,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.864988558352403,
+                "wrong": 0.009610983981693364
             }
         },
         {
@@ -5187,6 +5759,10 @@ const hard =
             "restricted": {
                 "average": 2.3090668431502315,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.8901601830663615,
+                "wrong": 0.008924485125858124
             }
         },
         {
@@ -5194,6 +5770,10 @@ const hard =
             "restricted": {
                 "average": 2.3090668431502315,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.8922196796338673,
+                "wrong": 0.010983981693363844
             }
         },
         {
@@ -5208,6 +5788,10 @@ const hard =
             "restricted": {
                 "average": 2.312375909993382,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.8954233409610985,
+                "wrong": 0.008237986270022883
             }
         },
         {
@@ -5215,6 +5799,10 @@ const hard =
             "restricted": {
                 "average": 2.314361350099272,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.9102974828375285,
+                "wrong": 0.004576659038901602
             }
         },
         {
@@ -5243,6 +5831,10 @@ const hard =
             "restricted": {
                 "average": 2.319324950363997,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.9125858123569794,
+                "wrong": 0.008924485125858124
             }
         },
         {
@@ -5264,6 +5856,10 @@ const hard =
             "restricted": {
                 "average": 2.3229649238914627,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.9070938215102973,
+                "wrong": 0.008695652173913044
             }
         },
         {
@@ -5271,6 +5867,10 @@ const hard =
             "restricted": {
                 "average": 2.3239576439444076,
                 "wrong": 0
+            },
+            "complete": {
+                "average": 3.8752860411899315,
+                "wrong": 0.006636155606407322
             }
         },
         {
@@ -8318,8 +8918,8 @@ const hard =
                 "wrong": 0.0008635578583765112
             },
             "complete": {
-                "average": 3.9004116839835326,
-                "wrong": 0.010586159576553617
+                "average": 3.8906178489702516,
+                "wrong": 0.005034324942791762
             }
         },
         {
@@ -8329,8 +8929,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.874142325034307,
-                "wrong": 0.013526759458929621
+                "average": 3.8482837528604117,
+                "wrong": 0.009839816933638444
             }
         },
         {
@@ -8340,8 +8940,8 @@ const hard =
                 "wrong": 0.0004317789291882556
             },
             "complete": {
-                "average": 3.881003724759851,
-                "wrong": 0.015095079396196824
+                "average": 3.864988558352403,
+                "wrong": 0.009610983981693364
             }
         },
         {
@@ -8358,8 +8958,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.9080572436777103,
-                "wrong": 0.015487159380513624
+                "average": 3.8901601830663615,
+                "wrong": 0.008924485125858124
             }
         },
         {
@@ -8369,8 +8969,8 @@ const hard =
                 "wrong": 0.0004317789291882556
             },
             "complete": {
-                "average": 3.900215643991374,
-                "wrong": 0.011370319545187219
+                "average": 3.8864988558352405,
+                "wrong": 0.005491990846681922
             }
         },
         {
@@ -8387,8 +8987,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.906292883748285,
-                "wrong": 0.013330719466771222
+                "average": 3.8922196796338673,
+                "wrong": 0.010983981693363844
             }
         },
         {
@@ -8398,8 +8998,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.910017643599294,
-                "wrong": 0.011370319545187219
+                "average": 3.905263157894737,
+                "wrong": 0.007093821510297483
             }
         },
         {
@@ -8423,8 +9023,8 @@ const hard =
                 "wrong": 0.0004317789291882556
             },
             "complete": {
-                "average": 3.8835522446579103,
-                "wrong": 0.009017839639286415
+                "average": 3.8638443935926774,
+                "wrong": 0.004118993135011442
             }
         },
         {
@@ -8434,8 +9034,8 @@ const hard =
                 "wrong": 0.0004317789291882556
             },
             "complete": {
-                "average": 3.899627524014899,
-                "wrong": 0.009605959615761616
+                "average": 3.8846681922196797,
+                "wrong": 0.005949656750572082
             }
         },
         {
@@ -8445,8 +9045,8 @@ const hard =
                 "wrong": 0.0004317789291882556
             },
             "complete": {
-                "average": 3.9019800039207997,
-                "wrong": 0.009801999607920015
+                "average": 3.8956521739130436,
+                "wrong": 0.005263157894736842
             }
         },
         {
@@ -8456,8 +9056,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.919231523230739,
-                "wrong": 0.010586159576553617
+                "average": 3.9102974828375285,
+                "wrong": 0.004576659038901602
             }
         },
         {
@@ -8488,8 +9088,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.9362870025485197,
-                "wrong": 0.014899039404038424
+                "average": 3.9125858123569794,
+                "wrong": 0.008924485125858124
             }
         },
         {
@@ -8520,8 +9120,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.9119780435208784,
-                "wrong": 0.009409919623603215
+                "average": 3.8954233409610985,
+                "wrong": 0.008237986270022883
             }
         },
         {
@@ -8531,8 +9131,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.9302097627916095,
-                "wrong": 0.015487159380513624
+                "average": 3.9070938215102973,
+                "wrong": 0.008695652173913044
             }
         },
         {
@@ -8560,8 +9160,8 @@ const hard =
                 "wrong": 0.0004317789291882556
             },
             "complete": {
-                "average": 3.8945304842187807,
-                "wrong": 0.007645559694177613
+                "average": 3.8846681922196797,
+                "wrong": 0.003432494279176201
             }
         },
         {
@@ -8585,8 +9185,8 @@ const hard =
                 "wrong": 0.0004317789291882556
             },
             "complete": {
-                "average": 3.9090374436385025,
-                "wrong": 0.009605959615761616
+                "average": 3.8929061784897026,
+                "wrong": 0.004118993135011442
             }
         },
         {
@@ -8596,8 +9196,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.8929621642815135,
-                "wrong": 0.011370319545187219
+                "average": 3.8752860411899315,
+                "wrong": 0.006636155606407322
             }
         },
         {
@@ -8621,8 +9221,8 @@ const hard =
                 "wrong": 0
             },
             "complete": {
-                "average": 3.8911978043520876,
-                "wrong": 0.009017839639286415
+                "average": 3.8558352402745997,
+                "wrong": 0.0036613272311212816
             }
         },
         {

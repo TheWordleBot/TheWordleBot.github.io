@@ -12,8 +12,6 @@ $(document).ready(function() {
         localStorage.setItem('bot_type', val);
 
         $('.bot-type').not('#'+val).removeAttr('checked');
-        // let val = $(this).val();
-        // localStorage.setItem('bot_type', val);
         setBotMode(val);
         createPage();
     });
@@ -83,7 +81,6 @@ function getPreferences() {
         document.getElementById(bank).checked = true;
         document.getElementById(otherWordbank(bank)).checked = false;
         setWordbank()
-        // document.getElementById('wordbank').value = localStorage.getItem('wordbank');
     }
 }
 
@@ -101,8 +98,6 @@ function drawPage() {
 
     createGuessInput(container);
     createAnswerSuggestions(container);
-
-    // header.innerHTML += "<button id = 'wordlebot'>Run Bot</button>"
 }
 
 function createMainHeader(div) {
@@ -202,12 +197,32 @@ function createInfoParagraphs() {
     return [p1, p2, p3, p4]
 }
 
+function explainExample() {
+    let explanation = document.createElement('div');
+    explanation.setAttribute('class', 'description');
+
+    if (bot.isFor('Wordle')) {
+        explanation.innerHTML = 'T is in the correct position, A is in the word but not in the correct position, and R, I, and N are not in the word.'
+    }
+
+    if (bot.isFor('Woodle')) {
+        explanation.innerHTML = 'TRAIN has one letter in the correct position, and one letter in the word, but not in the correct position';
+    }
+
+    if (bot.isFor('W-Peaks')) {
+        explanation.innerHTML = 'The 1st letter of the word is T, the second 2nd letter comes before R in the alphabet, the 3rd comes after A, the 4th before I, and the 5th before N.';
+    }
+
+    return explanation;
+}
+
 function createInfoPage() {
     let info = document.getElementsByClassName('info screen')[0];
     if (info.classList.contains('display')) return;
 
     let close_button = makeCloseButton('info');
     let example = createExample();
+    let explanation = explainExample();
     let example_wrong = createWrongExample();
     let paragraphs = createInfoParagraphs();
 
@@ -224,6 +239,7 @@ function createInfoPage() {
     info.append(paragraphs[0]);  // intro paragraph
     info.append(sub_header);     // header to examples
     info.append(example.row);    // example row w/ colors
+    info.append(explanation)     // explanation of tiles
     info.append(example.list);   // example answer list 
     info.append(paragraphs[1]);  // explanation of answer list
     info.append(example_wrong);  // example answer list with wrong %

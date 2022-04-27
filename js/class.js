@@ -49,6 +49,14 @@ class Bot {
             return setRowDifferencesWithPositions(difference, row);
         }
     }
+
+    getBestLetters(list) {
+        if (this.type != 'W-Peaks') {
+            return mostCommonLetters(list);
+        } else {
+            return lettersClosestToCenter(list);
+        }   
+    }
 }
 
 // Wordle Specific Functions
@@ -251,4 +259,51 @@ function getAlphabeticDifferences(word1, word2) {
     }
 
     return diff;
+}
+
+// calculates which letters appear most often throughout the remaining answers
+// used to rough sort the list if the entire list is too large to check
+// info is also prited underneath 'Most Common Letters' section
+function mostCommonLetters(list) {
+    if (!list.length) return [];
+
+    let letters = [];
+
+    for (let c = 65; c <= 90; c++) {
+        letters[String.fromCharCode(c)] = [];
+        for (let i = 0; i < parseInt(word_length)+1; i++) {
+            letters[String.fromCharCode(c)].push(0);
+        }
+    }
+
+    let checked;
+
+    for (let i = 0; i < list.length; i++) {
+        checked = [];
+        for (let j = 0; j < word_length; j++) {
+            c = list[i].charAt(j);
+
+            letters[c][j]++;
+
+            if (checked[c] != true) letters[c][word_length]++;  // only counts letters once per word
+            checked[c] = true;
+        }
+    }
+    return letters;
+}
+
+function lettersClosestToCenter() {
+    let letters = [];
+
+    for (let c = 65; c <= 90; c++) {
+        let char = String.fromCharCode(c);
+        let val = 1/Math.abs(c - (90+65)/2);
+        letters[char] = [];
+
+        for (let i = 0; i < word_length+1; i++) {
+            letters[char].push(val);
+        }
+    }
+
+    return letters;
 }

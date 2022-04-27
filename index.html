@@ -29,12 +29,10 @@
 <body>
     <div id="container">
         <div id="top-of-screen">
-            <!-- <div id="top-container"> -->
-                <h1 id = 'title'></h1>
-                <button class="header-button test" onclick="setupTest();"><i class='gg-bot'></i></button>
-                <button class = "header-button open settings" onclick="createSettingsPage();"><i class="fa fa-gear"></i></button>
-                <button class="header-button open info" onclick="createInfoPage();"><i class='fa fa-info-circle'></i></button>
-            <!-- </div> -->
+            <h1 id = 'title'></h1>
+            <button class="header-button test" onclick="setupTest();"><i class='gg-bot'></i></button>
+            <button class = "header-button open settings" onclick="createSettingsPage();"><i class="fa fa-gear"></i></button>
+            <button class="header-button open info" onclick="createInfoPage();"><i class='fa fa-info-circle'></i></button>
             <!-- <button id="wordlebot" onclick="testStartingWords();">Run bot</button> -->
         </div>
 
@@ -42,8 +40,6 @@
 
         <div class="settings screen">
             <button class="settings close"></button>
-            <!-- <h3 class = 'top-header'>Customize Your Bot</h3> -->
-
             <h3 class = 'mini-header'>Choose Your Wordlength</h3>
             <p class="description">We don't have to stick with 5 letters.</p>
             <p> 
@@ -79,14 +75,6 @@
                 <label for="W-Peaks">Wordle Peaks</label> 
                 <p class="description"><a href="https://vegeta897.github.io/wordle-peaks/" target="_blank">Wordle Peaks</a>, a version of Wordle where the clues you get are based on each letters position in the alphabet.</p>
             </div>
-            <!-- <p>
-                Tell me the best guesses for:     
-                <select name="bot-type" id="bot-type">
-                    <option value="Wordle">Wordle</option>
-                    <option value="Woodle">Woodle</option>
-                    <option value="W-Peaks">Wordle Peaks</option>
-                </select>
-            </p> -->
         </div>
 
         <div id="guesses">
