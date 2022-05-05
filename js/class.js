@@ -325,46 +325,16 @@ function lettersClosestToCenter() {
 
 function reducesListMost(answers, guesses, future_guess) {
     let best_words = [];
-    let list_size = answers.length;
-    let min = list_size;
+    let min = answers.length;
 
-    outer:
-    for (let pos = 0; pos < guesses.length; pos++) {
-        let differences = [];
-        let compare = guesses[pos];
-        let weighted = adjusted = 0;
-        let threes = 1;
+    for (let i = 0; i < guesses.length; i++) {
+        let data = calculateAverageBucketSize(guesses[i], answers, min, future_guess)
+        if (!data) continue;
+  
+        min = Math.min(min, data.adjusted);
+        best_words.push({word: guesses[i], average: data.adjusted, differences: data.differences});
 
-        for (let i = 0; i < list_size; i++) {
-            let diff = bot.getDifference(compare, answers[i]); 
-
-            if (differences[diff] == null) {
-                differences[diff] = [];
-            }
-
-            if (diff != CORRECT.repeat(word_length)) {
-                differences[diff].push(answers[i]);
-            }
-
-            let freq = differences[diff].length;
-            
-            if (freq > 0) {
-                weighted += (freq/list_size)*freq - ((freq-1)/list_size)*(freq-1);
-                if (freq > 1) {
-                    threes -= 1/list_size;
-                }
-            }
-
-            adjusted = (1-threes)*weighted;
-            if (adjusted >= min && future_guess || adjusted > min*SIZE_FACTOR) {
-                continue outer;
-            }
-        }
-
-        min = Math.min(min, adjusted);
-        best_words.push({word: compare, average: adjusted, differences: differences});
-
-        if (weighted < 1 && future_guess) break;
+        if (data.weighted < 1 && future_guess) break;
         if (min == 0 && best_words.length >= answers.length && future_guess) break;
     }
 
@@ -374,34 +344,48 @@ function reducesListMost(answers, guesses, future_guess) {
 
 function reducesListLeast(answers, guesses) {
     let best_words = [];
-    let list_size = answers.length;
 
-    for (let pos = 0; pos < guesses.length; pos++) {
-        let differences = [];
-        let compare = guesses[pos];
-        let weighted = 0;
+    for (let i = 0; i < guesses.length; i++) {
+        let data = calculateAverageBucketSize(guesses[i], answers, 0, 0);
 
-        for (let i = 0; i < list_size; i++) {
-            let diff = bot.getDifference(compare, answers[i]); 
-
-            if (differences[diff] == null) {
-                differences[diff] = [];
-            }
-
-            if (diff != CORRECT.repeat(word_length)) {
-                differences[diff].push(answers[i]);
-            }
-
-            let freq = differences[diff].length;
-            
-            if (freq > 0) {
-                weighted += (freq/list_size)*freq - ((freq-1)/list_size)*(freq-1);
-            }
-        }
-
-        best_words.push({word: compare, average: weighted, differences: differences});
+        best_words.push({word: guesses[i], average: data.weighted, differences: data.differences});
     }
 
     best_words = sortListByAverage(best_words);
     return best_words;    
+}
+
+function calculateAverageBucketSize(guess, answers, min, future_guess) {
+    let differences = [];
+    let list_size = answers.length;
+    let weighted = adjusted = 0;
+    let threes = 1;
+
+    for (let i = 0; i < list_size; i++) {
+        let diff = bot.getDifference(guess, answers[i]); 
+
+        if (differences[diff] == null) {
+            differences[diff] = [];
+        }
+
+        if (diff != CORRECT.repeat(word_length)) {
+            differences[diff].push(answers[i]);
+        }
+
+        let freq = differences[diff].length;
+        
+        if (freq > 0) {
+            weighted += (freq/list_size)*freq - ((freq-1)/list_size)*(freq-1);
+            if (freq > 1) {
+                threes -= 1/list_size;
+            }
+        }
+
+        adjusted = (1-threes)*weighted;
+        if (!bot.isFor(ANTI) && (adjusted >= min && future_guess || adjusted > min*SIZE_FACTOR)) {
+            return;
+        }
+    }
+    
+    return {word: guess, weighted: weighted, threes: threes, adjusted: adjusted, differences: differences};
 }

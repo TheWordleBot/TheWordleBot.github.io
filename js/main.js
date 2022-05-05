@@ -66,6 +66,10 @@ function setWordbank() {
     common = [...new Set(common)];
     common = common.sort();
     // common = officical_answers.slice(); // uncomment to use original wordle answer list 
+
+    let new_list = common_words.slice();
+    new_list = [...new Set(new_list)];
+    console.log(new_list);
 }
 
 function getBestOf(list) {
@@ -111,10 +115,10 @@ function getPotentialGuessesAndAnswers(difficulty) {
     let sorted_answer_list = sortList(answer_list, alphabet);
     let sorted_guess_list = words.slice();
 
-    if (isDifficulty(HARD, difficulty) || bot.isFor(ANTI)) {
+    if (isDifficulty(HARD, difficulty)) {
         sorted_guess_list = all_possible_words;
-    } 
-    
+    }
+
     sorted_guess_list = sortList(sorted_guess_list, alphabet, sorted_answer_list);
 
     return {guesses: sorted_guess_list, answers: sorted_answer_list, all: all_possible_words, unlikely: unlikely_answers};
@@ -558,7 +562,7 @@ function countResults(best, answers, guesses, results, attempt, difficulty, diff
     let new_guesses = answers.concat(guesses);
     new_guesses = [...new Set(new_guesses)];
         
-    if (isDifficulty(HARD, difficulty) || bot.isFor(ANTI)) {
+    if (isDifficulty(HARD, difficulty)) {
         new_guesses = filterList(new_guesses, {word: best.word, colors: differences});
     } else {
         new_guesses = reduceListSize(new_guesses, answers);
@@ -568,7 +572,6 @@ function countResults(best, answers, guesses, results, attempt, difficulty, diff
         addToResults(results, answers, attempt, best.word); 
 
     } else if (attempt < bot.guessesAllowed()-1 || bot.isFor(ANTI)) {
-        
         if (attempt == bot.guessesAllowed()-2 && !bot.isFor(ANTI)) {
             new_guesses = answers.slice();
         }
@@ -584,13 +587,7 @@ function countResults(best, answers, guesses, results, attempt, difficulty, diff
     if (attempt >= bot.guessesAllowed()-1) {
         if (!bot.isFor(ANTI)) {
             results['wrong'] = results['wrong'].concat(answers);
-        } else {
-            // for (let i = 0; i < 6; i++) {
-            //     results['wrong'] = results['wrong'].concat(results[i]);
-            // }
-
-            // results['wrong'] = [...new Set(results['wrong'])];
-        }
+        } 
     }
     
     calculateAverageGuesses(best, results);

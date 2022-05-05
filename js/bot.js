@@ -259,7 +259,7 @@ function runBot(guess, difficulty) {
             missed.push(testing_sample[count]);
         }
 
-        if (points == 3) console.log(testing_sample[count])
+        if (points == 16) console.log(testing_sample[count])
 
         sum += points;
         scores[points-1] += 1;
