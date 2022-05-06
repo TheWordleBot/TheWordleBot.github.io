@@ -66,10 +66,6 @@ function setWordbank() {
     common = [...new Set(common)];
     common = common.sort();
     // common = officical_answers.slice(); // uncomment to use original wordle answer list 
-
-    let new_list = common_words.slice();
-    new_list = [...new Set(new_list)];
-    console.log(new_list);
 }
 
 function getBestOf(list) {
@@ -97,7 +93,11 @@ function update() {
     }
 
     let lists = getPotentialGuessesAndAnswers(difficulty);
-    let best_guesses = getBestGuesses(lists.answers, lists.guesses, difficulty);
+    let best_guesses = [];
+
+    if (lists.answers.length) {
+        best_guesses = getBestGuesses(lists.answers, lists.guesses, difficulty);
+    }
 
     updateLists(lists.all, lists.answers, lists.unlikely, best_guesses);
 }
