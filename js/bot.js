@@ -24,7 +24,7 @@ function getStartingWords(difficulty) {
 function testStartingWords() {
     console.log("testing");
     
-    // const difficulty = Number(document.getElementById("mode").checked);
+    // const ifficulty = Number(document.getElementById("mode").checked);
     difficulty = HARD;
     // difficulty = NORMAL;
     
@@ -44,7 +44,7 @@ function testStartingWords() {
             current = averages.length;
 
             makeTables(check_list[i], 'testing');
-            setupTest(check_list[i], difficulty);
+            setupTest(check_list[i]);
 
             if (document.getElementById("summary")) {
                 document.getElementById("summary").remove();
@@ -82,7 +82,7 @@ function removeTest(animating) {
     document.getElementById('suggestions').classList.remove('testing');
 }
 
-function createBarGraphs() {
+function createBarGraphs(max_guesses) {
     if (document.getElementById("results")) {
         document.getElementById("results").remove();
     } 
@@ -92,7 +92,7 @@ function createBarGraphs() {
     test_center.setAttribute("class", "testing");
     test_center.innerHTML = "<div class = 'average'></div><div class = 'current'></div>";
     
-    for (let i = 0; i < bot.guessesAllowed(); i++) {
+    for (let i = 0; i < max_guesses; i++) {
         test_center.innerHTML += "<div class = 'bar'><span class = 'num-guesses'>" + (i+1) + "</span><span class = 'count'></span></div>";
     }
 
@@ -107,6 +107,15 @@ function createBarGraphs() {
     }
 
     return test_center;
+}
+
+function extendBarGraphLength(max_guesses) {
+    let bars = document.getElementsByClassName('bar');
+    let test_center = document.getElementById('results');
+
+    for (let i = bars.length; i < max_guesses; i++) {
+        test_center.innerHTML += "<div class = 'bar'><span class = 'num-guesses'>" + (i+1) + "</span><span class = 'count'></span></div>";
+    }
 }
 
 function removeNonBotElements() {
@@ -151,11 +160,14 @@ function swapDiv(event, elem) {
     elem.parentNode.insertBefore(elem, event);
 }
 
-function setupTest(word, difficulty) {
+function setupTest(word) {
     TEST_SIZE = 500;
     TEST_SIZE = common.length;
 
-    let test_center = createBarGraphs();
+    // let difficulty = HARD;
+    let difficulty = NORMAL;
+
+    let test_center = createBarGraphs(bot.guessesAllowed(difficulty));
     let menu = createBotMenu(word);
     test_center.appendChild(menu);
 
@@ -181,7 +193,6 @@ function setupTest(word, difficulty) {
             setWordbank();
 
             if (words.includes(word)) {
-                difficulty = HARD;
                 document.getElementById("test-settings").remove();
                 update();
                 runBot(word, difficulty);
@@ -205,6 +216,10 @@ function getTestAnswers(TEST_SIZE, random_answers) {
 }
 
 function adjustBarHeight(points, scores, total_sum, games_played) {
+    if (points >= document.getElementsByClassName('bar').length && bot.isFor(ANTI)) {
+        extendBarGraphLength(points+1);
+    }
+    
     let max = Math.max(...scores);
     let bars = document.getElementsByClassName("bar");
     document.getElementsByClassName("count")[points].innerHTML = scores[points];
@@ -247,22 +262,23 @@ function runBot(guess, difficulty) {
     let sum = 0;
     let count = 0;
     let missed = [];
-    let scores = new Array(bot.guessesAllowed()+1).fill(0);
+    let scores = new Array(bot.guessesAllowed(difficulty)+1).fill(0);
     let testing_sample = getTestAnswers(TEST_SIZE, []);
 
     let iv = setInterval(function() {
         document.getElementById("grid").innerHTML = "";
         let points = wordleBot(guess, testing_sample[count], difficulty);
 
-        if (points > bot.guessesAllowed()) {
+        if (points > bot.guessesAllowed(difficulty) && !bot.isFor(ANTI)) {
             // clearInterval(iv);
             missed.push(testing_sample[count]);
         }
 
-        if (points == 16) console.log(testing_sample[count])
-
         sum += points;
+
+        if (points > scores.length) scores = scores.concat(new Array(points-scores.length).fill(0));
         scores[points-1] += 1;
+
         adjustBarHeight(points-1, scores, sum, count+1);
         count++;
 
@@ -316,14 +332,14 @@ function printData(all_words, guess, average, time) {
 function wordleBot(guess, answer, difficulty) {
     let attempts = 1;
 
-    while (attempts <= bot.guessesAllowed()) {
+    while (attempts <= bot.guessesAllowed(difficulty) || bot.isFor(ANTI)) {
         makeTables(guess, "testing");
 
         let diff = bot.getDifference(guess, answer);
         bot.setRowColor(diff, document.getElementsByClassName('row')[attempts-1]);
 
-        if (guess == answer || attempts == bot.guessesAllowed()) {
-            if (guess != answer) attempts++;
+        if (guess == answer || attempts == bot.guessesAllowed(difficulty)) {
+            if (guess != answer && !bot.isFor(ANTI)) attempts++;
             break;
         }
         

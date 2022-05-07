@@ -353,15 +353,6 @@ function createHardModeSwitch(div) {
     div.insertBefore(switch_container, header);
 
     switch_checkbox.addEventListener('change', function() {
-        // let difficulty = NORMAL;
-        // if (bot.hasHardMode()) {
-        //     difficulty = Number(document.getElementById("mode").checked);
-        // } 
-
-        // if (bot.isFor(ANTI)) {
-        //     difficulty = hard;
-        // }
-
         update();
     });
 }

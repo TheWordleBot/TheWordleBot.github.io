@@ -17,9 +17,12 @@ class Bot {
         return this.type == WORDLE || this.type == ANTI;
     }
 
-    guessesAllowed() {
+    guessesAllowed(difficulty) {
         if (this.type == WOODLE) return 8;
-        if (this.type == ANTI) return 18;
+        if (this.type == ANTI) {
+            if (isDifficulty(HARD, difficulty)) return 18;
+            return 25;
+        }
         return 6;
     }
 
@@ -118,7 +121,8 @@ function differencesWithPositions(word1, word2) {
         if (word1_c == word2_c) {
             temp1 = temp1.slice(0, j) + temp1.slice(j+1);
             temp2 = temp2.slice(0, j) + temp2.slice(j+1);
-            diff = diff.slice(0, pos) + CORRECT + diff.slice(pos+1);
+            // diff = diff.slice(0, pos) + CORRECT + diff.slice(pos+1);
+            diff = replaceAt(diff, CORRECT, pos);
             j--;
         }
         pos++;
@@ -134,12 +138,14 @@ function differencesWithPositions(word1, word2) {
 
         let word1_c = temp1.charAt(j);
         if (temp2.includes(word1_c)) {
-            diff = diff.slice(0, pos) + WRONG_SPOT + diff.slice(pos+1);
+            // diff = diff.slice(0, pos) + WRONG_SPOT + diff.slice(pos+1);
+            diff = replaceAt(diff, WRONG_SPOT, pos);
 
             let index = temp2.indexOf(word1_c);
             temp2 = temp2.slice(0, index) + temp2.slice(index+1);
         } else {
-            diff = diff.slice(0, pos) + INCORRECT + diff.slice(pos+1);
+            // diff = diff.slice(0, pos) + INCORRECT + diff.slice(pos+1);
+            diff = replaceAt(diff, INCORRECT, pos);
         }
 
 
@@ -147,7 +153,6 @@ function differencesWithPositions(word1, word2) {
     }
 
     pairings[word1][word2] = diff;
-
     return diff;
 }
 
