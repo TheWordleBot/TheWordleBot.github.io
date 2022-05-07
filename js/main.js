@@ -142,7 +142,7 @@ function updateLists(words_left, likely_answers, unlikely_answers, best_guesses)
         // will only show the final two options as suggestions
         // ie: 'its either 'THIS' or 'THAT'
 
-        if (!bot.isFor(ANTI) || !unlikely_answers.length) 
+        if (!bot.isFor(ANTI) || (best_guesses[0].word == likely_answers[0])) 
             return showFinalOptions(likely_answers, unlikely_answers);
     } 
 }
