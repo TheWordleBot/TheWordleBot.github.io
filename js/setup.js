@@ -144,7 +144,13 @@ const EXAMPLE_LIST =
         {word: 'TIRED', score: '2.222 guesses left'}, 
         {word: 'TOPEE', score: '2.222 guesses left'},
         {word: 'TOPEK', score: '2.222 guesses left'}
-    ],     
+    ],
+    "Antiwordle": [
+        {word: 'TAZZA', score: '9.000 guesses left', wrong: '96.77% solve rate'},
+        {word: 'THUJA', score: '8.813 guesses left'},
+        {word: 'TAPPA', score: '8.813 guesses left'},
+        {word: 'TAXED', score: '8.500 guesses left'}
+    ]     
 } 
 
 

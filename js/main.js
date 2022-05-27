@@ -138,12 +138,14 @@ function updateLists(words_left, likely_answers, unlikely_answers, best_guesses)
     addToSlides("Your best possible guesses are:", guess_list);
     createAnswerDropdown(likely_answers, unlikely_answers);
     
-    if (likely_answers.length <= 2) {
+    if (likely_answers.length == 0 && unlikely_answers.length == 0) {
+        return addToSlides("", noWordsLeftMessage());
+    }
+
+    if (likely_answers.length <= 2 && !bot.isFor(ANTI)) {
         // will only show the final two options as suggestions
         // ie: 'its either 'THIS' or 'THAT'
-
-        if (!bot.isFor(ANTI) || (best_guesses[0].word == likely_answers[0])) 
-            return showFinalOptions(likely_answers, unlikely_answers);
+        return showFinalOptions(likely_answers, unlikely_answers);
     } 
 }
 
@@ -160,7 +162,7 @@ function writeBestGuessList(guesses, list_length) {
         if (guesses[i].wrong > 0 && guesses[i].wrong != NOT_YET_TESTED && !bot.isFor(ANTI)) {
             data = num_wrong + "% solve rate";
         } else if (guesses[i].wrong == NOT_YET_TESTED) {
-            data = "not yet tested ";
+            data = "not fully tested ";
         } else if (!guessesSoFar(0)) {
             data = num_guesses + " guesses"
         } else data = num_guesses + " guesses left";
@@ -231,10 +233,6 @@ function noWordsLeftMessage() {
 // shows: almost certainly 'THIS' or 'THAT'
 // unlikely but it could be: 'SOMETHING', 'ELSE'
 function showFinalOptions(sorted, less_likely) {
-    if (!sorted.length && !less_likely.length) {
-        return addToSlides("", noWordsLeftMessage());
-    }   
-
     let final_words = "";
     if (sorted.length) {
         final_words += "<li class = 'likely'>the word is almost certainly ";
@@ -438,10 +436,7 @@ function getBestGuesses(answer_list, guess_list, difficulty) {
     }
 
     if (numberOfGuessesSoFar(0)) return getFirstGuesses(difficulty);
-
-    if (!isDifficulty(HARD, difficulty) && !bot.isFor(ANTI)) {
-        temp_guesses = getWordsToCheck(answer_list, guess_list);
-    }
+    if (answer_list.length > 1000) return getTempList(guess_list, answer_list);
 
     let initial_guesses = bot.reducesListBest(answer_list, guess_list);
     best_guesses = calculateGuessList(answer_list, guess_list, initial_guesses, difficulty);
@@ -493,18 +488,19 @@ function getFirstGuesses(difficulty) {
     first_guesses = getBestOf(first_guesses).filter(a => a.word.length == word_length);
 
     if (!first_guesses.length) {
-        first_guesses = getTempList();
+        first_guesses = getTempList(words.slice(), common.slice());
     }
 
     return twoSort(first_guesses);
 }
 
-function getTempList() {
-    let guesses = words.slice();
-    let letters = bot.getBestLetters(common.slice());
-    guesses = sortList(words.slice(), letters);
+function getTempList(guesses, answers) {
+    // let guesses = words.slice();
+    // let letters = bot.getBestLetters(common.slice());
+    let letters = bot.getBestLetters(answers.slice());
+    guesses = sortList(guesses.slice(), letters);
     
-    guesses = bot.reducesListBest(common.slice(), guesses.slice(0, 50));
+    guesses = bot.reducesListBest(answers.slice(), guesses.slice(0, 50));
     guesses = guesses.map(a => Object.assign ({}, {word: a.word, average: a.adjusted, wrong: NOT_YET_TESTED}));
     return guesses;
 }
@@ -669,7 +665,9 @@ function createFilteredList(old_list, guess, difference, reduced_filter) {
         }
     }
     
-    return new_list.filter(a => a != guess);
+    if (new_list.length > 1) new_list = new_list.filter(a => a != guess);
+
+    return new_list;
 }
 
 function differencesMatch(guess, answer, all_diffs, reduced_filter) {
@@ -694,7 +692,8 @@ function getAllDifferences(word, difference) {
         }
     }
 
-    return createDiffsRecursive(word, difference, 0, chars, [difference]);
+    all_diffs = createDiffsRecursive(word, difference, 0, chars, [difference]);
+    return all_diffs;
 }
 
 // BYBBB --> kayak
@@ -710,13 +709,20 @@ function createDiffsRecursive(word, difference, index, char_list, diff_list) {
     if (char_list.includes(word.charAt(index)) && difference.charAt(index) != CORRECT) {
         let yellow = replaceAt(difference, WRONG_SPOT, index);
         let green = replaceAt(difference, CORRECT, index);
+        let black = replaceAt(difference, INCORRECT, index);
 
         diff_list.push(yellow);
         diff_list.push(green);
         diff_list.push(difference);
-
+        
         createDiffsRecursive(word, yellow, index+1, char_list, diff_list);
         createDiffsRecursive(word, green, index+1, char_list, diff_list);
+        
+        let c = word.charAt(index);
+        if (index != word.indexOf(c)) {
+            diff_list.push(black);
+            createDiffsRecursive(word, black, index+1, char_list, diff_list);
+        }
     } 
 
     return createDiffsRecursive(word, difference, index+1, char_list, diff_list);

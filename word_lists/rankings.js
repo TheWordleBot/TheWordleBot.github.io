@@ -5647,6 +5647,120 @@ const easy =
                 "wrong": 0
             }
         }
+    ],
+    "Antiwordle": [
+        {
+            "word": "IMMIX",
+            "restricted": {
+                "average": 11.680288461538462,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "QAJAQ",
+            "restricted": {
+                "average": 12.446314102564102,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "JUGUM",
+            "restricted": {
+                "average": 11.155448717948717,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "GYPPY",
+            "restricted": {
+                "average": 11.416266025641026,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "JUJUS",
+            "restricted": {
+                "average": 12.008814102564102,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "FUFFY",
+            "restricted": {
+                "average": 12.177884615384615,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "YUKKY",
+            "restricted": {
+                "average": 12.19951923076923,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "KUDZU",
+            "restricted": {
+                "average": 11.828926282051283,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "ZOPPO",
+            "restricted": {
+                "average": 12.231570512820513,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "XYLYL",
+            "restricted": {
+                "average": 12.194711538461538,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "FUZZY",
+            "restricted": {
+                "average": 11.974759615384615,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "SUSUS",
+            "restricted": {
+                "average": 11.974759615384615,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "HYPHY",
+            "restricted": {
+                "average": 11.526442307692308,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "BUBBY",
+            "restricted": {
+                "average": 12.266426282051283,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "KIBBI",
+            "restricted": {
+                "average": 11.763221153846153,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "OXBOW",
+            "restricted": {
+                "average": 11.538461538461538,
+                "wrong": 0
+            }
+        }
     ]
 }
 
@@ -11002,6 +11116,13 @@ const hard =
             "word": "QOPHS",
             "restricted": {
                 "average": 7.44136546184739,
+                "wrong": 0
+            }
+        },
+        {
+            "word": "BUBBY",
+            "restricted": {
+                "average": 8.510016025641026,
                 "wrong": 0
             }
         }

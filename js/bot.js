@@ -12,9 +12,7 @@ function reduceTestList(list) {
 }
 
 function getStartingWords(difficulty) {
-    let guesses = reduceTestList(words.slice());
-    guesses = bot.reducesListBest(common.slice(), guesses);
-    
+    let guesses = getFirstGuesses(difficulty);
     let starting_words = guesses.map(a => a.word);
     
     console.log(starting_words);
@@ -24,7 +22,6 @@ function getStartingWords(difficulty) {
 function testStartingWords() {
     console.log("testing");
     
-    // const ifficulty = Number(document.getElementById("mode").checked);
     difficulty = HARD;
     // difficulty = NORMAL;
     
@@ -35,9 +32,6 @@ function testStartingWords() {
 
     let i = 0;
     let current = -1;
-
-    if (isDifficulty(HARD, difficulty) && bot.hasHardMode()) newlist = hard;
-    else newlist = easy;
 
     let iv = setInterval(function() {
         if (averages.length > current) {
@@ -109,15 +103,6 @@ function createBarGraphs(max_guesses) {
     return test_center;
 }
 
-function extendBarGraphLength(max_guesses) {
-    let bars = document.getElementsByClassName('bar');
-    let test_center = document.getElementById('results');
-
-    for (let i = bars.length; i < max_guesses; i++) {
-        test_center.innerHTML += "<div class = 'bar'><span class = 'num-guesses'>" + (i+1) + "</span><span class = 'count'></span></div>";
-    }
-}
-
 function removeNonBotElements() {
     document.getElementById("word-entered").disabled = true;
     document.getElementsByClassName("info")[0].disabled = true;
@@ -162,10 +147,10 @@ function swapDiv(event, elem) {
 
 function setupTest(word) {
     TEST_SIZE = 500;
-    TEST_SIZE = common.length;
+    // TEST_SIZE = common.length;
 
-    // let difficulty = HARD;
-    let difficulty = NORMAL;
+    let difficulty = HARD;
+    // let difficulty = NORMAL;
 
     let test_center = createBarGraphs(bot.guessesAllowed(difficulty));
     let menu = createBotMenu(word);
@@ -216,10 +201,6 @@ function getTestAnswers(TEST_SIZE, random_answers) {
 }
 
 function adjustBarHeight(points, scores, total_sum, games_played) {
-    if (points >= document.getElementsByClassName('bar').length && bot.isFor(ANTI)) {
-        extendBarGraphLength(points+1);
-    }
-    
     let max = Math.max(...scores);
     let bars = document.getElementsByClassName("bar");
     document.getElementsByClassName("count")[points].innerHTML = scores[points];
@@ -274,9 +255,9 @@ function runBot(guess, difficulty) {
             missed.push(testing_sample[count]);
         }
 
-        sum += points;
+        if (points > 24) console.log(guess + " --> " + testing_sample[count]); 
 
-        if (points > scores.length) scores = scores.concat(new Array(points-scores.length).fill(0));
+        sum += points;
         scores[points-1] += 1;
 
         adjustBarHeight(points-1, scores, sum, count+1);

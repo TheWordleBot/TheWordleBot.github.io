@@ -21,7 +21,7 @@ class Bot {
         if (this.type == WOODLE) return 8;
         if (this.type == ANTI) {
             if (isDifficulty(HARD, difficulty)) return 18;
-            return 25;
+            return 26;
         }
         return 6;
     }
