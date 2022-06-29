@@ -17,7 +17,12 @@ $(document).ready(function() {
     });
 
     $("#word-length").on('input', function() {
-        localStorage.setItem('word_length', $(this).val());
+        localStorage.setItem('word_length' + bot.type, $(this).val());
+        createPage();
+    });
+
+    $("#max-guesses").on('input', function() {
+        localStorage.setItem('guesses' + bot.type, $(this).val());
         createPage();
     });
 
@@ -36,7 +41,7 @@ $(document).ready(function() {
     
     $("#word-entered").on('input', function(e) {
         let val = $("#word-entered").val();
-        if (words.includes(val)) {
+        if (val.length == word_length && (words.includes(val) || bot.isFor(THIRDLE))) {
             $("#word-entered").blur();
             
             makeTables(val);
@@ -94,7 +99,7 @@ function drawPage() {
     let header = document.getElementById('top-of-screen');
 
     createMainHeader(header);
-    createWordLengthSelector(header);
+    createWordLengthSelector();
 
     createGuessInput(container);
     createAnswerSuggestions(container);
@@ -111,17 +116,44 @@ function createMainHeader(div) {
 function createWordLengthSelector() {
     let select_length = document.getElementById('word-length');
 
-    let options = ""
+    let options = "";
     for (let i = SMALLEST_WORD; i <= LARGEST_WORD; i++) {
         let selected = "";
         if (i == 5) selected = "selected = 'selected'";
         options += "<option value='" + i + "' " + selected +">" + i + "</option>";
     }
 
+    if (bot.isFor(THIRDLE)) {
+        localStorage.setItem('word_length' + bot.type, 3);
+        options = "<option value ='3' selected = 'selected'>3</option>";
+    }
+
     select_length.innerHTML = options;
     
-    if (localStorage.getItem('word_length')) {
-        select_length.value = localStorage.getItem('word_length');
+    if (localStorage.getItem('word_length'+ bot.type) && (localStorage.getItem('word_length'+ bot.type) >= SMALLEST_WORD || bot.isFor(THIRDLE))) {
+        select_length.value = localStorage.getItem('word_length'+ bot.type);
+    }
+}
+
+function createMaxGuesses(div) {
+    let max_input = document.getElementById('max-guesses');
+
+    let options = "";
+    for (let i = 3; i <= 21; i++) {
+        let selected = "";
+        if (i == 6) selected = "selected = 'selected'";
+        options += "<option value='" + i + "' " + selected +">" + i + "</option>";    
+    }
+
+    if (bot.isFor(THIRDLE)) {
+        localStorage.setItem('guesses' + bot.type, 3);
+        options = "<option value ='3' selected = 'selected'>3</option>";
+    }
+
+    max_input.innerHTML = options;
+    
+    if (localStorage.getItem('guesses' + bot.type)) {
+        max_input.value = localStorage.getItem('guesses' + bot.type);
     }
 }
 
@@ -150,7 +182,13 @@ const EXAMPLE_LIST =
         {word: 'THUJA', score: '8.813 guesses left'},
         {word: 'TAPPA', score: '8.813 guesses left'},
         {word: 'TAXED', score: '8.500 guesses left'}
-    ]     
+    ],
+    "Thirdle": [
+        {word: 'LEAST', score: '3.652 guesses left', wrong: '96.77% solve rate'}, 
+        {word: 'STALE', score: '3.661 guesses left'}, 
+        {word: 'SPATE', score: '3.665 guesses left'},
+        {word: 'BEARD', score: '3.674 guesses left'}     
+    ]
 } 
 
 
@@ -186,7 +224,7 @@ function makeCloseButton(type) {
 function createInfoParagraphs() {
     let p1 = document.createElement('p');
     p1.innerHTML = `Simply enter in your last guess, click on the tiles until the colors match, hit calculate, 
-                    and the WordleBot will give you sthe best possible guesses from that point.`
+                    and the WordleBot will give you the best possible guesses from that point.`
 
     let p2 = document.createElement('p');
     p2.innerHTML = `This means the best guess from this point would be ` + EXAMPLE_LIST[bot.type][0].word + `,
@@ -296,6 +334,14 @@ function createAnswerSuggestions() {
         removeHardModeSwitch(suggestions);
     }
 
+    if (bot.hasMax()) {
+        createMaxGuesses(suggestions);
+    } else {
+        let max = document.getElementById('max-guesses');
+        localStorage.setItem('guesses' + bot.type, 'infinity');
+        max.innerHTML = "<option value ='infinity' selected = 'selected'> &#8734 </option>";    
+    }
+
     createAnswerLists(suggestions);
 }
 
@@ -306,25 +352,12 @@ function createAnswerLists(div) {
 
     let answer_lists = document.createElement('div');
     answer_lists.setAttribute('id', 'answers');
-    
-    // let normal_list_position = 'front', hard_list_position = 'back';
-    // if (bot.hasHardMode() && document.getElementById('mode').checked) {
-    //     normal_list_position = 'back';
-    //     hard_list_position = 'front';
-    // }
-
 
     createOptions(answer_lists);
-
-    // if (bot.hasHardMode()) {
-    //     createOptions(answer_lists, 'hard ' + hard_list_position);
-    // }
-
     div.append(answer_lists);
 }
 
 function createOptions(div) {
-    // let class_name = 'best-guesses ' + position;
     let class_name = 'best-guesses';
     let best_guesses = document.createElement('div');
     best_guesses.setAttribute('class', class_name);

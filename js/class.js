@@ -3,6 +3,7 @@ const WORDLE = 'Wordle';
 const WOODLE = 'Woodle';
 const PEAKS = 'W-Peaks';
 const ANTI = 'Antiwordle';
+const THIRDLE = 'Thirdle';
 
 class Bot {
     constructor(type) {
@@ -17,13 +18,13 @@ class Bot {
         return this.type == WORDLE || this.type == ANTI;
     }
 
+    hasMax() {
+        return this.type != ANTI;
+    }
+
     guessesAllowed(difficulty) {
-        if (this.type == WOODLE) return 8;
-        if (this.type == ANTI) {
-            if (isDifficulty(HARD, difficulty)) return 18;
-            return 26;
-        }
-        return 6;
+        if (this.type == ANTI) return INFINITY;
+        return parseInt(document.getElementById('max-guesses').value);
     }
 
     setChangeEvents(row) {
